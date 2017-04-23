@@ -1,0 +1,26 @@
+$orange: #FF6A26;
+$orange-l: chroma-tint($orange, 20);
+$orange-d: chroma-shade($orange, 20);
+
+$cyan: #4774B7;
+$cyan-l: chroma-tint($cyan, 20);
+$cyan-d: chroma-shade($cyan, 20);
+
+$purple: #80D144;
+$purple-l: chroma-tint($purple, 20);
+$purple-d: chroma-shade($purple, 20);
+
+$color-warning: #FFE492;
+$color-success: #88D1B2;
+$color-error: #F7857C;
+$color-info: #7DBAF7;
+
+$grey-d: #262E33;
+$grey-d-90: chroma-tint($grey-d, 20);
+$grey-d-80: chroma-tint($grey-d, 40);
+$grey-d-70: chroma-tint($grey-d, 60);
+
+$grey-l: #F5F3F0;
+$grey-l-10: chroma-shade($grey-l, 10);
+$grey-l-20: chroma-shade($grey-l, 20);
+$grey-l-30: chroma-shade($grey-l, 30);

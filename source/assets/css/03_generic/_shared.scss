@@ -1,0 +1,31 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+a {
+    color: $orange;
+    text-decoration: none;
+    transition: all .15s ease-out 0s;
+    &:hover {
+        color: $orange-l;
+	    transition: all .15s ease-in 0s;
+    } 
+    &:active {
+        color: $orange-d;
+    } 
+}
+
+ul {
+
+}
+
+li {
+
+}
+
+button {
+    
+}

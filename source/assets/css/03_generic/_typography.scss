@@ -1,0 +1,73 @@
+:root {
+    font-size: 100%;
+    @include from(3) {
+        font-size: fontCalc(1);
+    }
+}
+
+html {
+    font-family: $font_stack;
+}
+
+body {
+    @include ms-font(normal, $font_stack, ms(0), 3);
+}
+
+b,
+strong {
+    font-weight: bold;
+}
+
+i,
+em {
+    font-style: italic;
+}
+
+p {
+    @include ms-font(normal, 'menu', $font_stack, ms(0, $default-font-size*16/14), 1);
+    &:first-of-type {
+        @include ms-font(normal, 'menu', $font_stack, ms(0, $default-font-size*16/14), 1, null, margin-top);
+    }
+    &:last-of-type {
+        @include ms-font(normal, 'menu', $font_stack, ms(0, $default-font-size*16/14), 1, margin-bottom, null);
+    }
+}
+
+h1 {
+    @include ms-font(bold, 'menu', $font_stack, ms(4), 40, margin-bottom, padding-top);
+}
+
+h2 {
+    @include ms-font(bold, 'menu', $font_stack, ms(3), 20, margin-bottom, padding-top);
+}
+
+h3 {
+    @include ms-font(normal, 'menu', $font_stack, ms(2), 10, margin-bottom, padding-top);
+}
+
+h4 {
+    @include ms-font(bold, 'menu', $font_stack, ms(2, $default-font-size, $fourth), 5, margin-bottom, padding-top);
+}
+
+h5 {
+    @include ms-font(normal, 'menu', $font_stack, ms(1, $default-font-size*1.125, $fourth), 3, margin-bottom, padding-top);
+}
+
+h6 {
+    @include ms-font(normal, 'menu', $font_stack, ms(1, $default-font-size, $fourth), 3, margin-bottom, padding-top);
+}
+
+small {
+    @include ms-font(normal, 'menu', $font_stack, ms(4, $default-font-size/3, $major-third), 15, margin-bottom, padding-top);
+}
+
+sup, sub {
+    font-size: 75%;
+    margin-right: u(0.125rem);
+    position: relative;
+    top: u(-0.4rem);
+    vertical-align: baseline;
+}
+sub {
+    top: u(0.4rem);
+}

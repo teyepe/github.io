@@ -1,0 +1,335 @@
+// VARS
+
+$number-of-columns:         $grid-columns;// number of columns
+$gutter-width:              $grid-gutter; // the horizontal space between columns
+$column-spacing:            $gutter-width / 2; // the left and right space around each column - half the gutter
+$row-spacing:               $column-spacing; // the inner space of row (padding-left, padding-right)
+$row-width:                 $bp_4; // total row width
+
+$row-inner-width:           $row-width - (2 * $row-spacing); // the inner row width ($row-width - (padding-left + padding-right))
+$column-width:              ($row-inner-width - (2 * $column-spacing * $number-of-columns)) / $number-of-columns; // the column width
+
+$float-direction:           left !default; // the float direction of columns
+$opposite-float-direction:  right !default; // the opposite float
+$divisions:                 $number-of-columns !default; // the divisor of grid
+$is-divided:                false !default; // grid divided
+$grid-behavior:             false !default; // grid behavior
+
+
+// FUNCTIONS
+
+
+// Calculate the % witdh of each column
+
+@function columnPerc($row-width, $divisions) {
+    @for $is-divided from 1 through $divisions {
+        @return percentage((($row-inner-width - ($divisions * $gutter-width)) / $divisions) / $row-inner-width);
+    }
+}
+
+// Calculate the % witdh of each gutter
+
+@function gutterPerc($row-width, $divisions) {
+    @for $is-divided from 1 through $divisions {
+        @return (100% - (columnPerc($row-width, $divisions) * $divisions)) / $divisions;
+    }
+}
+
+// Get the fraction of row divisions
+
+@function divisionCalc($is-divided, $divisions) {
+    @return percentage($is-divided / $divisions);
+}
+
+// Function calculating grid-pulls' steps
+
+@function plusStep($is-divided, $divisions) {
+    $grid-subtract: (($divisions - $is-divided) / $divisions) * $gutter-width;
+    @for $is-divided from 1 through $divisions {
+        @return $grid-subtract;
+    }
+}
+
+// Function calculating grid-pushes & offset steps
+
+@function minusStep($is-divided, $divisions) {
+    $grid-add: ($is-divided / $divisions) * $gutter-width;
+    @for $is-divided from 1 through $divisions {
+        @return $grid-add;
+    }
+}
+
+// Get absolute values
+
+@function absVal($is-divided, $divisions) {
+    @return (((divisionCalc($is-divided, $divisions) / 100%) * $row-width) - $gutter-width);
+}
+
+// GRID MIXINS
+
+
+// Intializes a row.
+
+@mixin grid-row($grid-behavior: false, $row-spacing: $column-spacing) {
+    @if $grid-behavior == nest {
+        @include grid-row-nest; // [1]
+    }
+    @else if $grid-behavior == collapse {
+        @include grid-row-collapse; // [2]
+    }
+    @else if $grid-behavior == nest-collapse {
+        @include grid-row-nest-collapse; // [3]
+    }
+    @else {
+        @include grid-row-default; // [4]
+    }
+    @include grid-clearfix;
+}
+
+// Row type: Nest [1]
+
+@mixin grid-row-nest($column-spacing: $column-spacing) {
+    margin-#{$float-direction}: -$column-spacing;
+    margin-#{$opposite-float-direction}: -$column-spacing;
+    max-width: none;
+    width: auto;
+    content: 'grid-row-nest';
+    @include to(2) {
+        margin-#{$float-direction}: -$column-spacing/3;
+        margin-#{$opposite-float-direction}: -$column-spacing/3;
+    }
+    @include at(3) {
+        margin-#{$float-direction}: -$column-spacing/2;
+        margin-#{$opposite-float-direction}: -$column-spacing/2;
+    }
+}
+
+// Row type: Collapse [2]
+
+@mixin grid-row-collapse {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: $row-width;
+    width: 100%;
+    content: 'grid-row-collapse';
+}
+
+// Row type: Nest collapse [3]
+
+@mixin grid-row-nest-collapse {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: none;
+    width: auto;
+    content: 'grid-row-nest-collapse';
+}
+
+// Row type: Default [4]
+
+@mixin grid-row-default {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $row-width;
+    padding-left: $row-spacing;
+    padding-right: $row-spacing;
+    width: 100%;
+    content: 'grid-row-default';
+    @include to(2) {
+        padding-left: $row-spacing/3;
+        padding-right: $row-spacing/3;
+    }
+    @include at(3) {
+        padding-left: $row-spacing/2;
+        padding-right: $row-spacing/2;
+    }
+}
+
+// Render a column.
+
+@mixin grid-column($is-divided: false, $divisions: $number-of-columns, $column-spacing: $column-spacing) {
+    @include grid-float;
+    margin-#{$float-direction}: $column-spacing;
+    margin-#{$opposite-float-direction}: $column-spacing;
+    min-height: 1px;
+    position: relative;
+    @if $is-divided {
+        @include grid-width($is-divided, $divisions);
+    }
+    @include to(2) {
+        margin-#{$float-direction}: $column-spacing/3;
+        margin-#{$opposite-float-direction}: $column-spacing/3;
+    }
+    @include at(3) {
+        margin-#{$float-direction}: $column-spacing/2;
+        margin-#{$opposite-float-direction}: $column-spacing/2;
+    }
+}
+
+// Return calculated width.
+
+@mixin grid-width($is-divided, $divisions: $number-of-columns) {
+    @if $old-IE {
+        width: absVal($is-divided, $divisions);
+    } @else {
+        width: calc(#{divisionCalc($is-divided, $divisions)} - #{$gutter-width});
+        @include to(2) {
+            width: calc(#{divisionCalc($is-divided, $divisions)} - #{$gutter-width/3});
+        }
+        @include at(3) {
+            width: calc(#{divisionCalc($is-divided, $divisions)} - #{$gutter-width/2});
+        }
+    }
+}
+
+// Default float.
+
+@mixin grid-float {
+    float: $float-direction;
+}
+
+// Center a column or item.
+
+@mixin grid-centered {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+// Float last column on opposite side.
+
+@mixin grid-last {
+    float: $opposite-float-direction;
+}
+
+
+// Offset a column.
+
+@mixin grid-offset($is-divided: 1, $divisions: $number-of-columns) {
+    margin-#{$float-direction}: calc(#{divisionCalc($is-divided, $divisions)} + #{minusStep($is-divided, $divisions)});
+}
+
+
+// Push a column.
+
+@mixin grid-push($is-divided: 1, $divisions: $number-of-columns) {
+    #{$float-direction}: #{divisionCalc($is-divided, $divisions)};
+    #{$opposite-float-direction}: auto;
+}
+
+
+// Pull a column.
+
+@mixin grid-pull($is-divided: 1, $divisions: $number-of-columns) {
+    #{$float-direction}: auto;
+    #{$opposite-float-direction}: #{divisionCalc($is-divided, $divisions)};
+}
+
+
+// Collapse something
+
+@mixin grid-collapse {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+// Make a single element behave like a row with one column of 100% width.
+
+@mixin grid-container($grid-behavior: false, $gutter-width: $gutter-width) {
+    @include grid-row($grid-behavior);
+}
+
+// Clear floats.
+@mixin grid-clearfix {
+    &:before,
+    &:after {
+        content: '';
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+// Create grid classes.
+
+@mixin grid-classes (
+        $row-class:     row, 
+        $column-class:  col, 
+        $columns-class: col, 
+        $total-columns: $number-of-columns, 
+        $offset-class:  off, 
+        $push-class:    push, 
+        $pull-class:    pull
+    ) {
+
+    .#{$row-class} {
+        @include grid-row();
+
+        &.collapse {
+            @include grid-row(nest-collapse);
+        }
+    }
+
+    @for $i from 1 through $total-columns {
+        .#{$columns-class}-#{$i} {
+            // @include grid-width($i, $total-columns);
+            @include grid-column($i, $total-columns);
+        }
+    }
+
+    @if $column-class != false {
+        .#{$column-class} {
+            @include grid-column;
+        }
+
+        .#{$column-class}.centered {
+            @include grid-centered;
+        }
+
+        [class="#{column-class}"] {
+            width: 100%;
+        }
+
+        [class*="#{$column-class}"].end {
+            @include grid-last;
+        }
+    }
+
+    @for $i from 1 through $total-columns {
+        .#{$column-class}-#{$i}-#{$total-columns} {
+            @include grid-width($i, $total-columns);
+        }
+    }
+    & .#{$column-class} + .#{$column-class} {
+        @if $total-columns != 1 {
+            margin-#{$float-direction}: $column-spacing;
+            margin-#{$opposite-float-direction}: $column-spacing;
+            @include to(2) {
+                margin-#{$float-direction}: $column-spacing/3;
+                margin-#{$opposite-float-direction}: $column-spacing/3;
+            }
+            @include at(3) {
+                margin-#{$float-direction}: $column-spacing/2;
+                margin-#{$opposite-float-direction}: $column-spacing/2;
+            }
+        } @else {
+            margin-#{$float-direction}: 0;
+            margin-#{$opposite-float-direction}: 0;
+        }
+    }
+
+    @for $i from 1 through $total-columns - 1 {
+        .#{$offset-class}-#{$i} {
+            @include grid-offset($i, $total-columns);
+        }
+
+        .#{$push-class}-#{$i} {
+            @include grid-push($i, $total-columns);
+        }
+
+        .#{$pull-class}-#{$i} {
+            @include grid-pull($i, $total-columns);
+        }
+    }
+}

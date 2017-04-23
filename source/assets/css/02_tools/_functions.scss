@@ -1,0 +1,84 @@
+@function parseInt($n) {
+    @return $n / ($n * 0 + 1);
+}
+
+@function u($values) {
+    $list: ();
+    @each $value in $values {
+        $unit : unit($value);
+        $val  : parseInt($value);
+        @if $value == 0 or type-of($value) != "number" {
+            $list: append($list, $value);
+        }
+        @else if($get-px) and ($unit == 'rem') {
+            $list: append($list, ($val * $pixel-base) + px);
+        }
+        @else if($unit == 'px') or ($unit == 'rem') {
+            $list: append($list, $value);
+        }
+        @else {
+            @warn 'There is no unit conversion for #{$unit}';
+        }
+    }
+    @return $list();
+}
+
+@function fontCalc($min-font) {
+    $max-width: $bp_4;
+    $min-width: $bp_1;
+    $min-font: $default-font-size;
+    $max-font: $default-font-size*16/14;
+
+    $fontSizeDelta: parseInt($max-font - $min-font);
+    $viewPortDelta: parseInt($max-width - $min-width);
+    $fontSizeSlope: $fontSizeDelta / $viewPortDelta;
+    $zeroFontSize: parseInt($max-font - $fontSizeSlope * $max-width);
+    @return calc(#{$min-font} + #{$fontSizeDelta} * (100vw - #{$min-width}) / #{$viewPortDelta});
+}
+
+@function X-height($font-family) {
+    @if ($font-family == 'Montserrat') or ($font-family == 'Montserrat Light') or ($font-family == 'Montserrat Black') {
+        @return .712548875;
+    } @else if ($font-family == 'Platform') or ($font-family == 'Platform Medium') {
+        @return .73459375;
+    }
+    @return .725;
+}
+
+@function luminance($color) {
+    $rgb: (
+        'red': red($color),
+        'green': green($color),
+        'blue': blue($color)
+    );
+    @return ceil(((map-get($rgb, 'red') * .2126) + (map-get($rgb, 'green') * .7152) + (map-get($rgb, 'blue') * .0722)) * 100/255);    
+}
+
+@function tint($color, $percentage) {
+    @return mix(#FFF, $color, $percentage);
+}
+
+@function shade($color, $percentage) {
+    @return mix(#000, $color, $percentage);
+}
+
+@function chroma-tint($color, $percentage) {
+    @if hue($color) < 240 and hue($color) > 60 {
+        @return tint(adjust-hue($color, ((luminance($color)-(luminance(tint($color, $percentage)))))), $percentage);    
+    }
+    @return tint(adjust-hue($color, ((luminance($color)-(luminance(shade($color, $percentage)))))), $percentage);    
+}
+
+@function chroma-shade($color, $percentage) {
+    @if hue($color) < 240 and hue($color) > 60 {
+        @return shade(adjust-hue($color, ((luminance($color)-(luminance(shade($color, $percentage)))))), $percentage);    
+    }
+    @return shade(adjust-hue($color, ((luminance($color)-(luminance(tint($color, $percentage)))))), $percentage);    
+}
+
+@function dyn-color($color) {
+    @if (yiq-is-light($color, 128)) {
+        @return shade($color, 90);
+    }
+    @return tint($color, 90);
+}
