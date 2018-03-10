@@ -2,7 +2,7 @@ require('babel-polyfill');
 
 var path = require('path');
 var webpack = require('webpack');
-var ExtractCSS = require("extract-text-webpack-plugin");
+var ExtractCSS = require("mini-css-extract-plugin");
 var Modernizr = require('modernizr-webpack-plugin');
 var Clean = require('clean-webpack-plugin');
 var embedFileSize = 250;
@@ -39,29 +39,29 @@ const cssLoaders = [
     {
         loader: 'postcss-loader'
     },
-    {
-        loader: 'resolve-url-loader',
-        query: {
-            sourceMap: true,
-            silent: true,
-            root: process.cwd()
-        }
-    },
-    {
-        loader: 'sass-loader',
-        query: {
-            sourceMap: true,
-            sourceMapContents: true,
-            includePaths: [path.resolve(__dirname, './node_modules')]
-        }
-    }
+    // {
+    //     loader: 'resolve-url-loader',
+    //     query: {
+    //         sourceMap: true,
+    //         silent: true,
+    //         root: process.cwd()
+    //     }
+    // },
+    // {
+    //     loader: 'sass-loader',
+    //     query: {
+    //         sourceMap: true,
+    //         sourceMapContents: true,
+    //         includePaths: [path.resolve(__dirname, './node_modules')]
+    //     }
+    // }
 ];
 
 module.exports = {
     devtool: 'source-map',
     entry: {
         all: [path.resolve(__dirname, './source/assets/js/all.js')],
-        style: [path.resolve(__dirname, './source/assets/css/style.scss')],
+        style: [path.resolve(__dirname, './source/assets/css/style.css')],
     },
     output: {
         path: path.resolve(__dirname + '/.tmp/dist'),
@@ -89,11 +89,11 @@ module.exports = {
                 use: 'json-loader'
             },
             {
-                test: /\.scss$/,
-                use: ExtractCSS.extract({
-                    use: cssLoaders,
-                    fallback: ['style-loader']
-                })
+                test: /\.css$/,
+                use: [
+                    ExtractCSS.loader,
+                    'css-loader'
+                ]
             },
 
             {
@@ -134,7 +134,12 @@ module.exports = {
         definePlugin,
         new Modernizr(),
         new Clean(['.tmp']),
-        new ExtractCSS('assets/css/style.css'),
+        new ExtractCSS(),
+        // new ExtractCSS('assets/css/style.css'),
+        // new ExtractCSS({
+        //     filename: "[name].css",
+        //     chunkFilename: "[id].css"
+        // }),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.ProvidePlugin({
@@ -148,7 +153,7 @@ module.exports = {
             path.resolve('/source/assets/js'), 
             'node_modules'
         ],
-        extensions: ['.js', '.jsx', '.css', '.json', '.scss']
+        extensions: ['.js', '.jsx', '.css', '.json']
     },
     // resolve all relative paths from the project root folder
     context: path.resolve(__dirname, '.')

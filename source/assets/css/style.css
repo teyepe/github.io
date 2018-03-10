@@ -1,11 +1,11 @@
 @charset "UTF-8";
 
-@import '01_settings/Settings';
-@import '02_tools/Tools';
-@import '03_generic/Generic';
-@import '04_elements/Elements';
-@import '05_objects/Objects';
-@import '06_components/Components';
+/* @import '/01_settings/_Settings';
+@import '/02_tools/_Tools';
+@import '/03_generic/_Generic';
+@import '/04_elements/_Elements';
+@import '/05_objects/_Objects';
+@import '/06_components/_Components'; */
 
 
 body {

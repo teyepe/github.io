@@ -19,5 +19,5 @@
 .DS_Store
 
 node_modules/
-config.rb
-LICENCE
+# config.rb
+# LICENCE

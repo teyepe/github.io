@@ -163,8 +163,7 @@ PLATFORMS
 DEPENDENCIES
   breakpoint
   breakpoint-slicer
-  image_optim
-  middleman (~> 4.1.10)
+  middleman (~> 4.1.14)
   middleman-google-analytics
   middleman-imageoptim
   middleman-livereload (~> 3.4.6)
@@ -175,4 +174,4 @@ DEPENDENCIES
   redcarpet
 
 BUNDLED WITH
-   1.14.6
+   1.16.1
