@@ -1,0 +1,79 @@
+@charset 'UTF-8';
+
+@import '/01_settings/Settings';
+@import '/02_tools/Tools';
+@import '/03_generic/Generic';
+@import '/04_elements/Elements';
+@import '/05_objects/Objects';
+@import '/06_components/Components';
+
+
+body {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    color: $orange;
+    -webkit-overflow-scrolling: touch;
+}
+
+.background {
+    width: 128px;
+    height: 128px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-144px, -384px);
+    > svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        fill: #FFF;
+    }
+} 
+
+#grid {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    // background-color: transparentize(#FFF, .5);
+}
+
+#turing {
+    width: 110%;
+    position: fixed;
+    overflow: hidden;
+    top: -5%;
+    left: -5%;
+    right: -5%;
+    bottom: -5%;
+    height: auto;
+    min-height: 110%;
+    z-index: -1;
+}
+
+.welcome {
+    @include cf();
+    @include grid-row(collapse);
+}
+
+.about {
+    @include grid-column(9);
+    font-size: ms(3);
+    font-weight: bold;
+    z-index: 10;
+    left: 50%;
+    transform: translate(calc(-50% - #{$uni}), $uni);
+    position: absolute;
+    float: left;
+    padding: $uni 0;
+    @include between(3, 4) {
+        @include grid-column(5);
+        position: absolute;
+    }
+    @include from(4) {
+        @include grid-column(10/3);
+        position: absolute;
+    }
+}

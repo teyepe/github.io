@@ -67,9 +67,9 @@ activate :external_pipeline,
     latency: 1
 
 set :url_root, 'http://teyepe.com/'
-set :css_dir, 'assets/css'
-set :js_dir, 'assets/js'
-set :images_dir, 'assets/img'
+set :css_dir, 'assets/css/'
+set :js_dir, 'assets/js/'
+set :images_dir, 'assets/img/'
 
 set :relative_links, true
 set :markdown_engine, :kramdown

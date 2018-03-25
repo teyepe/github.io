@@ -1,28 +1,20 @@
-@mixin font-face($woff2, $font-family, $font-filename, $font-weight: normal, $font-style: normal, $font-path: './') {
-    @if $woff2 == null {
-        @font-face {
-            font-family: '#{$font-family}';
-            src: url('#{$font_path}#{$font_filename}.eot');
-            src: local('\2660'),
-                url('#{$font_path}#{$font_filename}.woff') format('woff'), 
-                url('#{$font_path}#{$font_filename}.ttf') format('truetype');
-            font: {
-                weight: $font-weight;
-                style: $font_style;
-            }
+@mixin font-face($woff2, $font-family, $font-filename, $font-weight: normal, $font-style: normal, $font-path: '../../assets/fonts/') {
+    @font-face {
+        font-family: '#{$font-family}';
+        src: url('#{$font_path}#{$font_filename}.eot');
+        @if $woff2 == null {
+        src: local('\2660'),
+            url('#{$font_path}#{$font_filename}.woff') format('woff'),
+            url('#{$font_path}#{$font_filename}.ttf') format('truetype');
+        } @else {
+        src: local('\2660'),
+            url('#{$font_path}#{$font_filename}.woff2') format('woff2'),
+            url('#{$font_path}#{$font_filename}.woff') format('woff'),
+            url('#{$font_path}#{$font_filename}.ttf') format('truetype');
         }
-    } @else {
-        @font-face {
-            font-family: '#{$font-family}';
-            src: url('#{$font_path}#{$font_filename}.eot');
-            src: local('\2660'),
-                url('#{$font_path}#{$font_filename}.woff2') format('woff2'), 
-                url('#{$font_path}#{$font_filename}.woff') format('woff'), 
-                url('#{$font_path}#{$font_filename}.ttf') format('truetype');
-            font: {
-                weight: $font-weight;
-                style: $font_style;
-            }
+        font: {
+            weight: $font-weight;
+            style: $font_style;
         }
     }
 }

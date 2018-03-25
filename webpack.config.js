@@ -2,7 +2,7 @@ require('babel-polyfill');
 
 var path = require('path');
 var webpack = require('webpack');
-var ExtractCSS = require("mini-css-extract-plugin");
+var ExtractCSS = require('mini-css-extract-plugin');
 var Modernizr = require('modernizr-webpack-plugin');
 var Clean = require('clean-webpack-plugin');
 var embedFileSize = 250;
@@ -13,55 +13,31 @@ const definePlugin = new webpack.DefinePlugin({
     __PRODUCTION__:  JSON.stringify(JSON.parse(process.env.BUILD_PRODUCTION || false))
 });
 
+const devServerEntry = [
+    'webpack-hot-middleware/client?path=https://localhost:4567/__webpack_hmr&timeout=2000&overlay=false', // WebpackDevServer host and port
+    'webpack/hot/only-dev-server' // "only" prevents reload on syntax errors
+];
+
 let babelPlugins = {
     'babelrc': false,
     'presets': [['es2015', { 'modules': false }], 'stage-0'],
     'plugins': [
         ['resolver', { 'resolveDirs': ['data', 'source'] }],
         ['transform-runtime', {
-            "polyfill": true,
-            "regenerator": true
+            'polyfill': true,
+            'regenerator': true
         }]
 
     ]
 };
 
-const cssLoaders = [
-    {
-        loader: 'css-loader',
-        query: {
-            sourceMap: true,
-            sourceComments: true,
-            importLoaders: 1,
-            localIdentName: '[path]-[name]--[local]__[hash:base64:5]'
-        }
-    },
-    {
-        loader: 'postcss-loader'
-    },
-    // {
-    //     loader: 'resolve-url-loader',
-    //     query: {
-    //         sourceMap: true,
-    //         silent: true,
-    //         root: process.cwd()
-    //     }
-    // },
-    // {
-    //     loader: 'sass-loader',
-    //     query: {
-    //         sourceMap: true,
-    //         sourceMapContents: true,
-    //         includePaths: [path.resolve(__dirname, './node_modules')]
-    //     }
-    // }
-];
-
 module.exports = {
     devtool: 'source-map',
     entry: {
-        all: [path.resolve(__dirname, './source/assets/js/all.js')],
-        style: [path.resolve(__dirname, './source/assets/css/style.css')],
+        app: [
+            './source/assets/js/all.js',
+            './source/assets/css/style.scss',
+        ].concat(devServerEntry),
     },
     output: {
         path: path.resolve(__dirname + '/.tmp/dist'),
@@ -89,13 +65,50 @@ module.exports = {
                 use: 'json-loader'
             },
             {
-                test: /\.css$/,
+                test: /\.scss$/,
+                include: [
+                    path.resolve(__dirname, 'source/assets/css')
+                ],
+                // use: [                    
+                //     ExtractCSS.loader,
+                //     'css-loader'
+                // ]
                 use: [
                     ExtractCSS.loader,
-                    'css-loader'
-                ]
+                    {
+                        loader: 'css-loader',
+                        query: {
+                            sourceMap: true,
+                            sourceComments: true,
+                            importLoaders: 1,
+                            localIdentName: '[path]-[name]--[local]__[hash:base64:5]'
+                        }
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        query: {
+                            sourceMap: 'inline'
+                        }
+                    },
+                    {
+                        loader: 'resolve-url-loader',
+                        query: {
+                            sourceMap: true,
+                            silent: true,
+                            root: process.cwd()
+                        }
+                    },
+                    {
+                        loader: 'sass-loader',
+                        query: {
+                            sourceMap: true,
+                            sourceMapContents: true,
+                            includePaths: [path.resolve(__dirname, './node_modules')],
+                            precision: 8,
+                            data: '$ENV: ' + 'DEVELOP' + ';'
+                        }
+                    }],
             },
-
             {
                 test: /\.svg/,
                 use: 'url-loader?limit=' + embedFileSize + '&mimetype=image/svg+xml'
@@ -134,20 +147,25 @@ module.exports = {
         definePlugin,
         new Modernizr(),
         new Clean(['.tmp']),
-        new ExtractCSS(),
+        // new ExtractCSS(),
         // new ExtractCSS('assets/css/style.css'),
-        // new ExtractCSS({
-        //     filename: "[name].css",
-        //     chunkFilename: "[id].css"
-        // }),
+        new ExtractCSS({
+            fallback: 'style-loader',
+            filename: '[name].css',
+            chunkFilename: '[id].css'
+        }),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
         new webpack.ProvidePlugin({
-            $: "jquery",
-            jQuery: "jquery",
-            "window.jQuery": "jquery"
+            $: 'jquery',
+            jQuery: 'jquery',
+            'window.jQuery': 'jquery'
         }),
     ],
+    // resolve: {
+    //     alias: ['node_modules']
+    // },
     resolveLoader: {
         modules: [
             path.resolve('/source/assets/js'), 
@@ -158,3 +176,5 @@ module.exports = {
     // resolve all relative paths from the project root folder
     context: path.resolve(__dirname, '.')
 }
+
+console.log('----------pipa', path.resolve(__dirname, 'source/assets/css'));

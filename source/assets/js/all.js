@@ -74,7 +74,7 @@ function Underwater(canvas, image, amplitude, frequency) {
     }
 
     function frameRate() {
-        return (1000 * frames / (Date.now() - timestamp));
+        return (1000 * frames / (then - timestamp));
     }
 
     if (typeof Int16Array !== 'undefined') {
