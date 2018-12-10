@@ -1,0 +1,27 @@
+.aside {
+    background-color: $offwhite;
+    &__sticky-wrapper {
+        position: sticky;
+        height: calc(100vh - 168px);
+        position: sticky;
+        top: 168px;
+        width: 100%;
+    }
+    &__list {
+        position: absolute;
+        bottom: 284px;
+        left: 40px;
+        transform: rotate(-90deg) translateX(-100%) translateY(0%);
+        transform-origin: left bottom;
+        opacity: 0.99;
+        z-index: 10;
+        width: 260px;
+    }
+    &__item {
+        float: left;
+        margin-right: $sp--y;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}

@@ -1,84 +1,67 @@
-@mixin font-face($woff2, $font-family, $font-filename, $font-weight: normal, $font-style: normal, $font-path: '../../assets/fonts/') {
+@mixin font-face($woff2, $font-family, $font-filename, $font-weight: normal, $font-style: normal, $font-path: '../../../assets/fonts/') {
     @font-face {
-        font-family: '#{$font-family}';
         src: url('#{$font_path}#{$font_filename}.eot');
         @if $woff2 == null {
-        src: local('\2660'),
-            url('#{$font_path}#{$font_filename}.woff') format('woff'),
-            url('#{$font_path}#{$font_filename}.ttf') format('truetype');
+            src: local('\2660'),
+                url('#{$font_path}#{$font_filename}.eot?#') format('embedded-opentype'),
+                url('#{$font_path}#{$font_filename}.woff') format('woff');
         } @else {
-        src: local('\2660'),
-            url('#{$font_path}#{$font_filename}.woff2') format('woff2'),
-            url('#{$font_path}#{$font_filename}.woff') format('woff'),
-            url('#{$font_path}#{$font_filename}.ttf') format('truetype');
+            src: local('\2660'),
+                url('#{$font_path}#{$font_filename}.eot?#') format('embedded-opentype'),
+                url('#{$font_path}#{$font_filename}.woff2') format('woff2'),
+                url('#{$font_path}#{$font_filename}.woff') format('woff');
         }
         font: {
+            family: '#{$font-family}';
             weight: $font-weight;
             style: $font_style;
         }
     }
 }
 
-@mixin ms-font($font-weight, $font-family, $font-stack, $font-size, $baseline-divisions: 4, $value1: null, $value2: null) {
-    $cap_height:         X-height($font-family);
-    $baseline-step:      $default-line-height * $font-size / $baseline-divisions;
-    $lines:              ceil(($font-size + (($font-size + .1) / ($font-size * 100))) / $baseline-step);
-    $line_height:        $baseline-step * $lines / $font-size;
-    $baseline_distance:  ($line_height - $cap_height) / 2;
+@mixin css-lock (
+    $min-size,
+    $max-size,
+    $property,
+    $min-width: $bp--sm,
+    $max-width: $bp--xl
+) {
+    #{$property}: lock-calc($min-size, $max-size, $min-width, $max-width);
+    @include to(1) {
+        #{$property}: #{$min-size};
+    }
+    @include from(5) {
+        #{$property}: #{$max-size};
+    }
+}
 
-    @if $value1 == null and $value2 == null {
-        @if $old-IE {
-            font-family: $font-family, $font-stack;
-            font-size: $font-size;
-            font-weight: $font-weight;
-            line-height: $line_height;
-        } @else {
-            font: $font-weight #{$font-size}/#{$line_height} $font-family, $font-stack;
-        }
-    } @else if $value1 == null {
-        @if $old-IE {
-            font-family: $font-family, $font-stack;
-            font-size: $font-size;
-            font-weight: $font-weight;
-            line-height: $line_height;
-        } @else {
-            font: $font-weight #{$font-size}/#{$line_height} $font-family, $font-stack;
-        }
-        @if $get-px {
-            #{$value2}: ($baseline_distance * $pixel-base + px);
-        } @else {
-            #{$value2}: ($baseline_distance + rem);
-        }
+@mixin font (
+    $font-family,
+    $font-weight,
+    $min-scale,
+    $max-scale,
+    $baseline-divisions: 4,
+    $value1: null,
+    $value2: null,
+    $font-style: normal
+) {
+    $cap-height: glyph-x-height($font-family);
+    $line-height-fraction: $baseline-divisions;
+    $line-rhythm: $line-height / $line-height-fraction;
+    $lines: parse-int(ceil(($font-size + 0.01) / $line-rhythm));
+    $unit-line-height: $lines * $line-rhythm;
+    $baseline-distance: ($unit-line-height - $cap-height) / 2;
+    @include css-lock(ms($min-scale), ms($max-scale), font-size);
+    font-family: $font-family, $font-stack;
+    font-weight: $font-weight;
+    line-height: $unit-line-height;
+    @if $value1 == null {
+        #{$value2}: ($baseline-distance + rem);
     } @else if $value2 == null {
-        @if $old-IE {
-            font-family: $font-family, $font-stack;
-            font-size: $font-size;
-            font-weight: $font-weight;
-            line-height: $line_height;
-        } @else {
-            font: $font-weight #{$font-size}/#{$line_height} $font-family, $font-stack;
-        }
-        @if $get-px {
-            #{$value1}: (($line_height - $baseline_distance) * $pixel-base + px);
-        } @else {
-            #{$value1}: ($line_height - $baseline_distance + rem);
-        }
+        #{$value1}: ($unit-line-height - $baseline-distance + rem);
     } @else {
-        @if $old-IE {
-            font-family: $font-family, $font-stack;
-            font-size: $font-size;
-            font-weight: $font-weight;
-            line-height: $line_height;
-        } @else {
-            font: $font-weight #{$font-size}/#{$line_height} $font-family, $font-stack;
-        }
-        @if $get-px {
-            #{$value1}: (($line_height - $baseline_distance) * $pixel-base + px);
-            #{$value2}: ($baseline_distance * $pixel-base + px);
-        } @else {
-            #{$value1}: ($line_height - $baseline_distance + rem);
-            #{$value2}: ($baseline_distance + rem);
-        }
+        #{$value1}: ($unit-line-height - $baseline-distance + rem);
+        #{$value2}: ($baseline-distance + rem);
     }
 }
 
@@ -93,6 +76,20 @@
     }
 }
 
+/* stylelint-disable */
+@mixin word-wrap() {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+/* stylelint-enable */
+
 @mixin silent-class($class-name) {
     .#{$class-name},
     %#{$class-name} {
@@ -101,18 +98,19 @@
 }
 
 @mixin selection {
-    ::-moz-selection { @content; }
-    ::selection { @content; }
+    ::selection {
+        @content;
+    }
 }
 
 @mixin units($property, $values) {
-    $px : ();
+    $px: ();
     $rem: ();
 
     @each $value in $values {
 
-        @if $value == 0 or type-of($value) != "number" or unit($value) != "rem" or unit($value) != "px" {
-            $px : append($px , $value);
+        @if $value == 0 or type-of($value) != 'number' or unit($value) != 'rem' or unit($value) != 'px' {
+            $px: append($px, $value);
             $rem: append($rem, $value);
         }
 
@@ -120,13 +118,13 @@
             $unit: unit($value);
             $val: parseInt($value);
 
-            @if $unit == "px" {
-                $px : append($px,  $value);
+            @if $unit == 'px' {
+                $px: append($px, $value);
                 $rem: append($rem, ($val / 16 + rem));
             }
 
-            @if $unit == "rem" {
-                $px : append($px,  ($val * 16 + px));
+            @if $unit == 'rem' {
+                $px: append($px, ($val * 16 + px));
                 $rem: append($rem, $value);
             }
         }
@@ -136,7 +134,7 @@
         #{$property}: $rem;
     } @else {
         #{$property}: $rem;
-        html.no-cssremunit & {
+        .no-cssremunit & {
             #{$property}: $px;
         }
     }
@@ -145,12 +143,9 @@
 // Clearfix
 
 @mixin cf() {
-    & {
-        *zoom: 1;
-    }
     &:before,
     &:after {
-        content: "";
+        content: '';
         display: table;
     }
     &:after {
@@ -164,7 +159,7 @@
     $offset: $degrees / length($classes);
     $color-range: ();
     @for $i from 1 through length($classes) {
-        $color-range: (adjust-hue($color, $offset * $i)); 
+        $color-range: (adjust-hue($color, $offset * $i));
         .#{nth($classes, $i)} {
             #{$color-val}: $color-range;
         }
@@ -195,7 +190,7 @@
 // Background Gradients
 
 @mixin linear-gradient($colors-stops: (), $deg: 180) {
-    background: linear-gradient(unquote("#{$deg}deg"), $colors-stops);
+    background: linear-gradient(unquote('#{$deg}deg'), $colors-stops);
 }
 
 @mixin gradient($color1, $color2, $stop1: 0, $stop2: 100%, $deg: 180deg) {

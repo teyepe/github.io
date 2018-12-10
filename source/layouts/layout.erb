@@ -2,18 +2,23 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title><%= current_page.data.title'&mdash;'"teyepe.com" %></title>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title><%= current_page.data.title"&mdash;""teyepe.com" %></title>
         <meta name="description" content="<%= current_page.data.description %>">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="canonical" href="<%= permalink_helper %>">
         <%= stylesheet_link_tag "app", :relative => false %>
     </head>
 
     <body class="<%= page_classes %>">
-        <main id="main" class="main">
-            <%= yield %>
-        </main>
-        <%= javascript_include_tag  "all" %>
+        <div class="loop js-loop">        
+            <%= partial "partials/header" %>
+            <main id="main" class="main">
+                <%= yield %>
+            </main>
+            <%= partial "partials/footer" %>
+        </div>
+        <%= image_tag "bg.png", :id => "diffusion-pttrn", :class => "diffusion-pttrn", :style => "display: none" %>
+        <%= javascript_include_tag "vendor.bundle", "app.bundle" %>
     </body>
 </html>

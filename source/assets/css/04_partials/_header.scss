@@ -1,0 +1,20 @@
+.header {
+    background-color: $offwhite;
+    height: $sp--y*5;
+    &__title {
+        @include font('Eurostile', bold, 3, 4, 4);
+        @include css-lock(-0.25*$sp, -0.55*$sp, letter-spacing);
+        color: $deepblue;
+        &:hover {
+            color: $orange;
+        }
+    }
+    &__logo {    
+        svg {
+            fill: $deepblue;
+            width: 100%;
+            position: absolute;
+        }
+    }
+}
+

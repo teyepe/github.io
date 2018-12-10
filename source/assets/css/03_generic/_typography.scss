@@ -1,16 +1,9 @@
 :root {
     font-size: 100%;
-    @include from(3) {
-        font-size: fontCalc(1);
-    }
-}
-
-html {
-    font-family: $sans;
 }
 
 body {
-    @include ms-font(350, 'SourceSansVar', $sans, ms(1), 3);
+    @include font('Forma-Micro', normal, 0, 0, 4);
 }
 
 b,
@@ -24,65 +17,55 @@ em {
 }
 
 p {
-    @include ms-font(400, 'SourceSans', $sans, ms(0, $default-font-size*16/14), 1);
-    &:first-of-type {
-        @include ms-font(400, 'SourceSans', $sans, ms(0, $default-font-size*16/14), 1, null, margin-top);
-    }
-    &:last-of-type {
-        @include ms-font(400, 'SourceSans', $sans, ms(0, $default-font-size*16/14), 1, margin-bottom, null);
-    }
+    @include font('Forma-Text', normal, 1, 2, 4, margin-bottom, padding-top);
 }
 
-h1 {
-    @include ms-font(100, 'SourceSans', $sans, ms(4), 40, margin-bottom, padding-top);
-}
-
-h2 {
-    @include ms-font(100, 'SourceSans', $sans, ms(3), 20, margin-bottom, padding-top);
-}
-
-h3 {
-    @include ms-font(100, 'SourceSans', $sans, ms(2), 10, margin-bottom, padding-top);
-}
-
-h4 {
-    @include ms-font(400, 'SourceSans', $sans, ms(2, $default-font-size, $fourth), 5, margin-bottom, padding-top);
-}
-
-h5 {
-    @include ms-font(400, 'SourceSans', $sans, ms(1, $default-font-size*1.125, $fourth), 3, margin-bottom, padding-top);
-}
-
+h1,
+h2,
+h3,
+h4,
+h5,
 h6 {
-    @include ms-font(400, 'SourceSans', $sans, ms(1, $default-font-size, $fourth), 3, margin-bottom, padding-top);
+    @include font('Forma-Micro', normal, 0, 0, 4);
+}
+
+.c-title {
+    &--h1 {
+        @include font('Eurostile', bold,  4, 5, 4, margin-bottom, padding-top);
+        @include css-lock(-0.3*$sp, -0.65*$sp, letter-spacing);
+        color: $offwhite;
+    }
+    &--h2 {
+        @include font('Eurostile', bold, 3, 4, 4, margin-bottom, padding-top);
+        @include css-lock(-0.25*$sp, -0.35*$sp, letter-spacing);
+    }
+    &--h3 {
+        @include font('Forma-Banner', normal, 2, 3, 4, margin-bottom, padding-top);
+    }
+    &--h4 {
+        @include font('Forma-Deck', normal, 1, 2, 4, margin-bottom, padding-top);
+    }
+    &--h5 {    
+        @include font('Forma-Text', normal, 0.5, 1, 4, margin-bottom, padding-top);
+    }
+    &--h6 {    
+        @include font('Forma-Text', normal, 0.25, 0.5, 4, margin-bottom, padding-top);
+    }
 }
 
 small {
-    @include ms-font(400, 'SourceSans', $sans, ms(4, $default-font-size/3, $major-third), 15, margin-bottom, padding-top);
+    @include font('Forma-Text', normal, -1, -1, 4, margin-bottom, padding-top);
 }
 
-@supports ((font-variation-settings: 'wght' 100) or (font-variation-settings: 'wght' 150) or (font-variation-settings: 'wght' 200)) {
-    h1 {
-        font-variation-settings: 'wght' 100;
-        @include ms-font(normal, 'SourceSansVar', $sans, ms(4), 40, margin-bottom, padding-top);
-    }
-    h2 {
-        font-variation-settings: 'wght' 250;
-        @include ms-font(normal, 'SourceSansVar', $sans, ms(3), 20, margin-bottom, padding-top);
-    }
-    h3 {
-        font-variation-settings: 'wght' 300;
-        @include ms-font(normal, 'SourceSansVar', $sans, ms(2), 10, margin-bottom, padding-top);
-    }
-}
-
-sup, sub {
+sup,
+sub {
     font-size: 75%;
     margin-right: u(0.125rem);
     position: relative;
     top: u(-0.4rem);
     vertical-align: baseline;
 }
+
 sub {
     top: u(0.4rem);
 }

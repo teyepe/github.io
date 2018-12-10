@@ -7,6 +7,7 @@ module.exports = {
         require('postcss-unique-selectors'),
         require('postcss-ordered-values'),
         require('autoprefixer')({
+            grid: true,
             browsers: ['> 5%']
         }),
         require('css-declaration-sorter')({
