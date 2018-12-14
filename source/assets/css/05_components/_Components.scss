@@ -27,14 +27,21 @@
 
 .turing-canvas,
 .diffusion-pttrn {
-    width: 110%;
-    height: 110%;
+    width: 100%;
+    height: 100%;
     position: fixed;
     overflow: hidden;
-    top: -5%;
-    left: -5%;
-    right: -5%;
-    bottom: -5%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: translateZ(0);
+}
+
+.turing-canvas {
+    z-index: -3;
+}
+.diffusion-pttrn {
     z-index: -2;
 }
 
