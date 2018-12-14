@@ -7,7 +7,10 @@ TEYEPE.shader = function(canvas, image, amplitude, frequency) {
     var canvas = document.createElement('canvas');
     var context = canvas.getContext('2d');
     var image = new Image();
-    image.src = '../assets/img/bg.png';
+    image.src = '../assets/img/bg2.png';
+    // var image = document.getElementById('diffusion-pttrn');
+    imgW = image.clientWidth;
+    imgH = image.clientHeight;
     canvas.id = 'turing-canvas';
     canvas.className = 'turing-canvas';
     canvas.width = vw;
@@ -17,8 +20,11 @@ TEYEPE.shader = function(canvas, image, amplitude, frequency) {
         interval = 1000 / 60,
         frames = 0,
         context = canvas.getContext('2d'),
-        result = context.createImageData(vw, vh);
-        document.body.appendChild(canvas);
+        // result = context.createImageData(vw, vh);
+        result = context.createPattern(image, 'repeat');
+        context.fillStyle = result;
+        context.fillRect(0, 0, canvas.width, canvas.height);
+        document.getElementById('bg-canvas').appendChild(canvas);
 
     function init() {
         var i, source;
@@ -54,9 +60,10 @@ TEYEPE.shader = function(canvas, image, amplitude, frequency) {
                 r[dest + 2] = pixels[src + 2];
             }
         }
-
+        
+        console.log(frequency);
         context.putImageData(result, 0, 0);
-        frames += .2;
+        frames += 1;
 
         context.getImageData(0, 0, 1, 1);
     };
@@ -66,13 +73,28 @@ TEYEPE.shader = function(canvas, image, amplitude, frequency) {
     };
 
     function start() {
+        // apply();
+        // ticker = window.setInterval(apply, interval);
         requestAnimationFrame(apply);
-        init();
     };
 
-    return {
-        start
+    function frameRate() {
+        return (1000 * frames / (Date.now() - timestamp));
     };
+
+    init();
+
+    return {
+        start: start
+    };
+};
+
+TEYEPE.fx = () => {
+    var canvas, image, fx;
+    canvas = document.getElementById('turing-canvas');
+    image = document.getElementById('diffusion-pttrn');
+    fx = new TEYEPE.shader(canvas, image, 14, 0.6);
+    fx.start();
 };
 
 TEYEPE.blink = () => {
@@ -103,17 +125,9 @@ TEYEPE.imageReveal = () => {
     };
 };
 
-TEYEPE.fx = () => {
-    var canvas, image, fx;
-    canvas = document.getElementById('turing-canvas');
-    image = document.getElementById('diffusion-pttrn');
-    fx = new TEYEPE.shader(canvas, image, 14, 1);
-    fx.start();
-};
-
 TEYEPE.continuousScroll = () => {
     const scrollEl = document.scrollingElement || document.documentElement;
-    const disallowedCloneTags = ['SCRIPT', 'STYLE', 'IMG', 'CANVAS'];
+    const disallowedCloneTags = ['SCRIPT', 'STYLE', 'BACKGROUND'];
     const origDocHeight = document.body.offsetHeight;
     let isInitScroll = true;
     let latestKnownScrollY = 0;

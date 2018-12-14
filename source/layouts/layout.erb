@@ -18,7 +18,9 @@
             </main>
             <%= partial "partials/footer" %>
         </div>
-        <%= image_tag "bg.png", :id => "diffusion-pttrn", :class => "diffusion-pttrn", :style => "display: none" %>
+        <background id="bg-canvas" class="bg-canvas">
+            <%= image_tag "bg2.png", :id => "diffusion-pttrn", :class => "diffusion-pttrn", :style => "display: none" %>
+        </background>
         <%= javascript_include_tag "vendor.bundle", "app.bundle" %>
     </body>
 </html>
