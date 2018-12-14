@@ -1,4 +1,4 @@
-@mixin font-face($woff2, $font-family, $font-filename, $font-weight: normal, $font-style: normal, $font-path: '../../../assets/fonts/') {
+@mixin font-face($woff2, $font-family, $font-filename, $font-weight: normal, $font-style: normal, $font-path: '../../../assets/type/') {
     @font-face {
         src: url('#{$font_path}#{$font_filename}.eot');
         @if $woff2 == null {
