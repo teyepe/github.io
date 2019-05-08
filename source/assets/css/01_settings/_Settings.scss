@@ -23,13 +23,12 @@ $system-fonts: (-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica
 $font-stack: $sans !global;
 
 // Page sizes - breakpoints(bp = BreakPoint):
-$bp--xl: $sp*143;
-$bp--lg: $sp*96;
-$bp--md: $sp*60;
-$bp--sm: $sp*32;
+$bp--lg: $sp*143;
+$bp--md: $sp*96;
+$bp--sm: $sp*40;
 
 // Breakpoints
-$slicer-breakpoints: 0 $bp--sm $bp--md $bp--lg $bp--xl;
-$slicer-breakpoint-names: 'xs' 'sm' 'md' 'lg' 'xl';
+$slicer-breakpoints: 0 $bp--sm $bp--md $bp--lg;
+$slicer-breakpoint-names: 'xs' 'sm' 'md' 'lg';
 $slicer-anti-overlap-corrections: -1px, -0.05rem;
 $breakpoint-no-query-wrappers: true;

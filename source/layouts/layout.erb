@@ -5,22 +5,19 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title><%= current_page.data.title"&mdash;""teyepe.com" %></title>
         <meta name="description" content="<%= current_page.data.description %>">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="canonical" href="<%= permalink_helper %>">
         <%= stylesheet_link_tag "app", :relative => false %>
     </head>
 
     <body class="<%= page_classes %>">
+        <%= partial "partials/header" %>
         <div class="loop js-loop">        
-            <%= partial "partials/header" %>
             <main id="main" class="main">
                 <%= yield %>
             </main>
             <%= partial "partials/footer" %>
         </div>
-        <background id="bg-canvas" class="bg-canvas">
-            <%= image_tag "bg2.png", :id => "diffusion-pttrn", :class => "diffusion-pttrn", :style => "display: none" %>
-        </background>
         <%= javascript_include_tag "vendor.bundle", "app.bundle" %>
     </body>
 </html>

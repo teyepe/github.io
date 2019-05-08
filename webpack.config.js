@@ -28,6 +28,9 @@ const siteConfig = {
             path.join(__dirname, 'source', 'assets', 'js'),
             'node_modules',
         ],
+        alias: {
+            modernizr$: path.resolve(__dirname, '.modernizrrc')
+        },
     },
 
     output: {
@@ -53,6 +56,14 @@ const siteConfig = {
                     loader: 'expose-loader',
                     options: '$',
                 }],
+            },
+            {
+                test: /\.modernizrrc.js$/,
+                use: [ 'modernizr-loader' ]
+            },
+            {
+                test: /\.modernizrrc(\.json)?$/,
+                use: [ 'modernizr-loader', 'json-loader' ]
             },
             {
                 test: /\.(sa|sc|c)ss$/,
@@ -117,7 +128,7 @@ const siteConfig = {
                 // use: 'base64-inline-loader?name=fonts/[name].[ext]'
                 use: [
                     {
-                        loader: 'url-loader',
+                        loader: 'file-loader',
                         options: {
                             name: 'assets/fonts/[name]-[hash].[ext]'
                         }

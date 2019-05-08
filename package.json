@@ -27,6 +27,7 @@
     "better-npm-run": "^0.1.1",
     "breakpoint-sass": "^2.7.1",
     "breakpoint-slicer": "^2.0.0",
+    "cash-dom": "^2.3.9",
     "css-declaration-sorter": "^4.0.1",
     "css-loader": "^1.0.1",
     "css-mqpacker": "^7.0.0",
@@ -37,8 +38,11 @@
     "file-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
     "imports-loader": "^0.8.0",
+    "json-loader": "^0.5.7",
     "lodash": "^4.17.11",
     "mini-css-extract-plugin": "^0.4.5",
+    "modernizr": "^3.6.0",
+    "modernizr-loader": "^1.0.1",
     "modularscale-sass": "^3.0.8",
     "node-sass": "^4.10.0",
     "postcss": "^7.0.6",
@@ -71,12 +75,10 @@
   "dependencies": {
     "@babel/core": "^7.1.6",
     "@babel/preset-env": "^7.1.6",
-    "base64-inline-loader": "^1.1.1",
     "clean-webpack-plugin": "^1.0.0",
     "compression-webpack-plugin": "^2.0.0",
     "jquery": "^3.3.1",
-    "mathsass": "^0.10.1",
-    "modernizr-webpack-plugin": "^1.0.7"
+    "mathsass": "^0.10.1"
   },
   "browserslist": [
     "last 2 version",

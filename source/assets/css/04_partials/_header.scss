@@ -1,8 +1,12 @@
 .header {
-    background-color: $offwhite;
-    height: $sp--y*5;
+    height: $sp--y*4;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
     &__title {
-        @include font('Eurostile', bold, 3, 4, 4);
+        @include font('Eurostile', bold, 4, 4, 4);
         @include css-lock(-0.25*$sp, -0.55*$sp, letter-spacing);
         color: $deepblue;
         &:hover {
@@ -13,6 +17,8 @@
         svg {
             fill: $deepblue;
             width: 100%;
+            height: auto;
+            max-height: 105%;
             position: absolute;
         }
     }

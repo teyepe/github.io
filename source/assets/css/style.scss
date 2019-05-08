@@ -7,45 +7,45 @@
 @import '/05_components/Components';
 
 .grid {
-    max-width: $bp--xl;
+    max-width: $bp--lg;
     margin: 0 auto;
     display: grid;
     padding: 0 $sp*3;
     grid-gap: $sp--y $sp*3;
-    grid-template-columns: repeat(5, [col] 20%);
-    grid-template-rows: repeat(8, [row] $sp--y*4);
+    grid-template-columns: repeat(6, 1fr [col]);
+    grid-template-rows: repeat(10, [row] $sp--y*4);
     @include from(3) {
-        grid-template-columns: repeat(10, [col] 1fr);
+        grid-template-columns: repeat(10, 1fr [col]) minmax(min-content, $sp*10);
     }
     &--a {
-        grid-template-rows: [row] $sp--y;
+        grid-template-rows: repeat(4, [row] $sp--y);
         grid-gap: 0 $sp*3;
-        height: 100%;
+        // height: 100%;
     }
     &--b {
-        grid-template-rows: repeat(4, [row] 1fr);
+        grid-template-rows: repeat(10, [row] $sp--y*4);
     }
     &__item--header {
         grid-column: col / span 3;
-        grid-row: row 2 / span 2;
+        grid-row: row 3 / span 2;
         @include from(3) {
-            grid-column: col / span 5;
+            grid-column: col 1 / span 4;
         }
     }
     &__item--logo {
         display: none;
         @include from(3) {
-            grid-column: col 7 / span 2;
-            grid-row: row 2 / span 2;
-            margin-top: -$sp--y/2;
+            grid-column: col 8 / span 2;
+            grid-row: row 1 / span 4;
             display: block;
             position: relative;
+            bottom: -$sp--y;
         }
     }
     &__item--a {
         padding-top: $sp--y*3/4;
-        grid-column: col / span 4;
-        grid-row: row 3 / span 4;
+        grid-column: col 1 / span 4;
+        grid-row: row 4 / span 6;
         z-index: 1;
         @include from(3) {
             grid-column: col 4 / span 5;
@@ -53,7 +53,7 @@
     }
     &__item--b {
         grid-column: col 1 / span 4;
-        grid-row: row 2;
+        grid-row: row 4 / span 4;
         z-index: 1;
         @include from(3) {
             grid-column: col 4 / span 5;
@@ -70,26 +70,34 @@
     }
     &__item--d {
         grid-column: col 1 / span 4;
-        grid-row: row 2 / span 3;
+        grid-row: row 3 / span 3;
         background-color: $deepblue;
         z-index: 1;
-        @include from(3) {
+        // width: 530px;
+        @include from(2) {
             grid-column: col 1 / span 9;
         }
-        @include from(4) {
+        @include from(3) {
             grid-column: col 2 / span 4;
         }
     }
     &__item--e {
-        grid-column: col 5 / span 1;
-        grid-row: row / span 8;
+        grid-column: col 4 / span 1;
+        grid-row: row / span 10;
         @include from(3) {
             grid-column: col 10 / span 1;
         }
     }
     &__item--f {
         grid-column: col 1 / span 4;
-        grid-row: row 6 / span 1;
+        grid-row: row 6 / span 3;
+        @include from(3) {
+            grid-column: col 4 / span 5;
+        }
+    }
+    &__item--g {
+        grid-column: col 1 / span 4;
+        grid-row: row 10 / span 1;
         @include from(3) {
             grid-column: col 4 / span 5;
         }

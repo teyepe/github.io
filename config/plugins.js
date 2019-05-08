@@ -6,7 +6,6 @@ const Clean = require('clean-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
-
 const definePlugin = new webpack.DefinePlugin({
     __DEVELOPMENT__: JSON.stringify(env.__DEVELOPMENT__),
     __DEBUG__:       JSON.stringify(env.__DEBUG__),

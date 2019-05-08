@@ -31,8 +31,8 @@ h6 {
 
 .c-title {
     &--h1 {
-        @include font('Eurostile', bold,  4, 5, 4, margin-bottom, padding-top);
-        @include css-lock(-0.3*$sp, -0.65*$sp, letter-spacing);
+        @include font('Eurostile', bold,  4, 6, 16, margin-bottom, padding-top);
+        @include css-lock(-0.65*$sp, -0.8125*$sp, letter-spacing);
         color: $offwhite;
     }
     &--h2 {

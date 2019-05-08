@@ -24,13 +24,13 @@
     $max-size,
     $property,
     $min-width: $bp--sm,
-    $max-width: $bp--xl
+    $max-width: $bp--lg
 ) {
     #{$property}: lock-calc($min-size, $max-size, $min-width, $max-width);
     @include to(1) {
         #{$property}: #{$min-size};
     }
-    @include from(5) {
+    @include from(4) {
         #{$property}: #{$max-size};
     }
 }

@@ -6,11 +6,15 @@ description: "Hey, I'm Tasos! your all-around Design guy 🤘"
 <section class="intro">
     <div class="grid">
         <%= partial "partials/grid-lines/about" %>
-        <div class="grid__item--d"></div>
+        <div class="grid__item--d">
+            <div class="canvas__wrapper" id="js-canvas">
+                <%= image_tag 'teyepe.png' %>
+            </div>
+        </div>
         <div class="grid__item--a">
             <h1 class="c-title--h1">teyepe who?</h1>
-            <p><span>Teyepe</span> is the moniker of multidisciplinary designer, art director, UI engineer, frontend developer, <del>fire breather</del> etc. <span>Tasos Dervenagas.</span></p>
-            <p>He is working on user interfaces and design systems. Tasos is a design lead at <span>PeoplePerHour.</span></p>
+            <p><span>Teyepe</span> is the moniker of multi&shy;disciplinary designer <span>Tasos Dervenagas</span>.</p>
+            <p>He builds top-notch user interfaces and develops meticulous design systems. Tasos is a design lead at <span>PeoplePerHour</span>.</p>
         </div>
         <%= partial "partials/aside" %>
     </div>
@@ -19,11 +23,11 @@ description: "Hey, I'm Tasos! your all-around Design guy 🤘"
     <div class="grid grid--a">
         <%= partial "partials/grid-lines/info" %>
         <div class="grid__item--b">
-            <h2 class="c-title--h2">About</h2>
-            <p>Tasos is a Greek guy who currently lives in London. His design career spans over 18 years including senior roles in both traditional graphic design positions and the web. Most of his time he designs interfaces and quite often writes presentational code for the web. He cares a lot about user experience, reusability, functionalism and minimal yet meaningful design. He favours semantically structured markup, well designed CSS and component-based development.</p>
-            <p>Throughout his professional endeavours, Tasos has <def class="sample__anchor js-sample">crafted </def><def class="sample__anchor js-sample">typefaces, </def><def class="sample__anchor js-sample">logotypes, </def>illustrations, <def class="sample__anchor js-sample">web </def>interfaces, <def class="sample__anchor js-sample">digital</def> <def class="sample__anchor js-sample">experiences</def> and <def class="sample__anchor js-sample">more</def>.</p>
-            <p>Currently he designs complex web applications with a group of briliant folks at PeoplePerHour.</p>
+            <h2 class="c-title--h2">about</h2>
+            <p>Tasos is among the few designers who arrogantly support the idea that web (design) is still <a href="https://ia.net/topics/the-web-is-all-about-typography-period" target="_blank" title="">95% typography</a>. Having a strong graphic design and typographic background, he has worked as art director, type designer and UI engineer with a career path of over <%= "#{(Date.today.year - 2001)}" %> years.</p>
+            <p>Today, he designs interfaces and quite often writes presentational code for the web. He cares a lot about user experience, reusability, functionalism and minimal yet meaningful design. He favours semantically structured markup, thoroughly orchestrated CSS and component-based development.</p>
+            <p>Throughout his professional endeavours, Tasos has <dfn class="sample__anchor">crafted <span class="sample__item"></span></dfn><dfn class="sample__anchor">typefaces, <span class="sample__item"></span></dfn><dfn class="sample__anchor">logotypes, <span class="sample__item sample__item--portrait"></span></dfn>illustrations, <dfn class="sample__anchor">web <span class="sample__item"></span></dfn>interfaces, <dfn class="sample__anchor">digital <span class="sample__item"></span></dfn><dfn class="sample__anchor">experiences <span class="sample__item"></span></dfn> and <dfn class="sample__anchor">more<span class="sample__item"></span></dfn>.</p>
+            <p>Currently he designs demanding web applications with a group of briliant folks at PeoplePerHour.</p>
         </div>
-        <%= partial "partials/work-sample" %>
     </div>
 </section>
