@@ -12,10 +12,10 @@
     display: grid;
     padding: 0 $sp*3;
     grid-gap: $sp--y $sp*3;
-    grid-template-columns: repeat(6, 1fr [col]);
+    grid-template-columns: repeat(6, [col] 1fr);
     grid-template-rows: repeat(10, [row] $sp--y*4);
     @include from(3) {
-        grid-template-columns: repeat(10, 1fr [col]) minmax(min-content, $sp*10);
+        grid-template-columns: repeat(10, [col] 1fr) minmax(min-content, $sp*10);
     }
     &--a {
         grid-template-rows: repeat(4, [row] $sp--y);

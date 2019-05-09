@@ -38,7 +38,8 @@ const siteConfig = {
         filename: 'assets/js/[name].bundle.js',
         hotUpdateChunkFilename: '[id].[hash].hot-update.js',
         hotUpdateMainFilename: '[hash].hot-update.json',
-        publicPath: 'http://localhost:4567/',
+        // publicPath: process.env.NODE_ENV === 'production' ? '../../' : 'https://teyepe.com/',
+        publicPath: process.env.NODE_ENV === 'production' ? '../../' : '../',
     },
 
     devServer: {
@@ -130,7 +131,7 @@ const siteConfig = {
                     {
                         loader: 'file-loader',
                         options: {
-                            name: 'assets/fonts/[name]-[hash].[ext]'
+                            name: 'assets/type/[name]-[hash].[ext]'
                         }
                     },
                 ]

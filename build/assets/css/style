@@ -1,5 +1,5 @@
 /*
-Error: Invalid CSS after "... repeat(6, 1fr ": expected ")", was "[col]);"
+Error: Invalid CSS after "...mns: repeat(6, ": expected function argument, was "[col] 1fr);"
         on line 15 of /Users/tasos 1/Documents/Repositories/teyepe.github.io/source/assets/css/style.scss
 
 10:     max-width: $bp--lg;
@@ -7,10 +7,10 @@ Error: Invalid CSS after "... repeat(6, 1fr ": expected ")", was "[col]);"
 12:     display: grid;
 13:     padding: 0 $sp*3;
 14:     grid-gap: $sp--y $sp*3;
-15:     grid-template-columns: repeat(6, 1fr [col]);
+15:     grid-template-columns: repeat(6, [col] 1fr);
 16:     grid-template-rows: repeat(10, [row] $sp--y*4);
 17:     @include from(3) {
-18:         grid-template-columns: repeat(10, 1fr [col]) minmax(min-content, $sp*10);
+18:         grid-template-columns: repeat(10, [col] 1fr) minmax(min-content, $sp*10);
 19:     }
 20:     &--a {
 
@@ -18,8 +18,12 @@ Backtrace:
 /Users/tasos 1/Documents/Repositories/teyepe.github.io/source/assets/css/style.scss:15
 /usr/local/lib/ruby/gems/2.5.0/gems/sass-3.4.25/lib/sass/scss/parser.rb:1207:in `expected'
 /usr/local/lib/ruby/gems/2.5.0/gems/sass-3.4.25/lib/sass/script/lexer.rb:229:in `expected!'
-/usr/local/lib/ruby/gems/2.5.0/gems/sass-3.4.25/lib/sass/script/parser.rb:717:in `assert_tok'
-/usr/local/lib/ruby/gems/2.5.0/gems/sass-3.4.25/lib/sass/script/parser.rb:541:in `funcall'
+/usr/local/lib/ruby/gems/2.5.0/gems/sass-3.4.25/lib/sass/script/parser.rb:710:in `assert_expr'
+/usr/local/lib/ruby/gems/2.5.0/gems/sass-3.4.25/lib/sass/script/parser.rb:619:in `block in arglist'
+/usr/local/lib/ruby/gems/2.5.0/gems/sass-3.4.25/lib/sass/script/parser.rb:593:in `loop'
+/usr/local/lib/ruby/gems/2.5.0/gems/sass-3.4.25/lib/sass/script/parser.rb:593:in `arglist'
+/usr/local/lib/ruby/gems/2.5.0/gems/sass-3.4.25/lib/sass/script/parser.rb:578:in `fn_arglist'
+/usr/local/lib/ruby/gems/2.5.0/gems/sass-3.4.25/lib/sass/script/parser.rb:540:in `funcall'
 /usr/local/lib/ruby/gems/2.5.0/gems/sass-3.4.25/lib/sass/script/parser.rb:520:in `ident'
 /usr/local/lib/ruby/gems/2.5.0/gems/sass-3.4.25/lib/sass/script/parser.rb:309:in `unary_not'
 /usr/local/lib/ruby/gems/2.5.0/gems/sass-3.4.25/lib/sass/script/parser.rb:309:in `unary_div'
@@ -142,4 +146,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid CSS after \"... repeat(6, 1fr \": expected \")\", was \"[col]);\"\A         on line 15 of /Users/tasos 1/Documents/Repositories/teyepe.github.io/source/assets/css/style.scss\A \A 10:     max-width: $bp--lg;\A 11:     margin: 0 auto;\A 12:     display: grid;\A 13:     padding: 0 $sp*3;\A 14:     grid-gap: $sp--y $sp*3;\A 15:     grid-template-columns: repeat(6, 1fr [col]);\A 16:     grid-template-rows: repeat(10, [row] $sp--y*4);\A 17:     @include from(3) {\A 18:         grid-template-columns: repeat(10, 1fr [col]) minmax(min-content, $sp*10);\A 19:     }\A 20:     &--a {"; }
+  content: "Error: Invalid CSS after \"...mns: repeat(6, \": expected function argument, was \"[col] 1fr);\"\A         on line 15 of /Users/tasos 1/Documents/Repositories/teyepe.github.io/source/assets/css/style.scss\A \A 10:     max-width: $bp--lg;\A 11:     margin: 0 auto;\A 12:     display: grid;\A 13:     padding: 0 $sp*3;\A 14:     grid-gap: $sp--y $sp*3;\A 15:     grid-template-columns: repeat(6, [col] 1fr);\A 16:     grid-template-rows: repeat(10, [row] $sp--y*4);\A 17:     @include from(3) {\A 18:         grid-template-columns: repeat(10, [col] 1fr) minmax(min-content, $sp*10);\A 19:     }\A 20:     &--a {"; }

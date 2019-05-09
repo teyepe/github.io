@@ -1,15 +1,15 @@
 @mixin font-face($woff2, $font-family, $font-filename, $font-weight: normal, $font-style: normal, $font-path: '../../../assets/type/') {
     @font-face {
-        src: url('#{$font_path}#{$font_filename}.eot');
+        src: url('#{unquote($font_path)}#{$font_filename}.eot');
         @if $woff2 == null {
             src: local('\2660'),
-                url('#{$font_path}#{$font_filename}.eot?#') format('embedded-opentype'),
-                url('#{$font_path}#{$font_filename}.woff') format('woff');
+                url('#{unquote($font_path)}#{$font_filename}.eot?#') format('embedded-opentype'),
+                url('#{unquote($font_path)}#{$font_filename}.woff') format('woff');
         } @else {
             src: local('\2660'),
-                url('#{$font_path}#{$font_filename}.eot?#') format('embedded-opentype'),
-                url('#{$font_path}#{$font_filename}.woff2') format('woff2'),
-                url('#{$font_path}#{$font_filename}.woff') format('woff');
+                url('#{unquote($font_path)}#{$font_filename}.eot?#') format('embedded-opentype'),
+                url('#{unquote($font_path)}#{$font_filename}.woff2') format('woff2'),
+                url('#{unquote($font_path)}#{$font_filename}.woff') format('woff');
         }
         font: {
             family: '#{$font-family}';

@@ -18,6 +18,12 @@
         }
         p {
             @include font('Forma-Micro', normal, -0.5, 0, 2);
+            span {
+                margin: 0 $sp*.2 0 -$sp*.2;
+                position: relative;
+                bottom: -$sp*.2;
+                font-size: 120%;
+            }
         }
     }
     &__copyright {

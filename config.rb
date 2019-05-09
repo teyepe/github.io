@@ -4,6 +4,7 @@ require 'builder'
 activate :i18n, :mount_at_root => :en
 activate :directory_indexes
 activate :search_engine_sitemap
+activate :imageoptim
 activate :meta_tags
 activate :external_pipeline,
     name: :webpack,
@@ -19,6 +20,7 @@ set :url_root, 'https://teyepe.com/'
 set :css_dir, 'assets/css/'
 set :js_dir, 'assets/js/'
 set :images_dir, 'assets/img/'
+set :fonts_dir, 'assets/type/'
 
 set :relative_links, true
 set :markdown_engine, :kramdown
@@ -48,7 +50,7 @@ configure :build do
     set :host, 'teyepe.com'
 
     activate :relative_assets
-    activate :asset_hash, :ignore => %w(.png .ttf .otf .woff .eot)
+    activate :asset_hash, :ignore => %w(.png .ttf .otf .woff .woff2 .eot)
     activate :gzip, exts: %w(.js .css .html .htm .svg .ttf .otf .woff .eot)
 
 
@@ -59,8 +61,10 @@ configure :build do
 end
 
 activate :deploy do |deploy|
-  deploy.deploy_method = :git
-  # deploy.branch = 'gh-pages'
+    deploy.deploy_method = :git
+    deploy.path = '/'
+    deploy.branch = 'master'
+    deploy.build_before = true
 end
 
 helpers do
