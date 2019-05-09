@@ -16,3 +16,4 @@ gem 'breakpoint'
 gem 'breakpoint-slicer'
 
 gem 'html-proofer'
+gem 'middleman-deploy', '~> 2.0.0.pre.alpha'
