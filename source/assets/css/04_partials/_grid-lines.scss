@@ -10,15 +10,15 @@
         background-color: shade-chroma($offwhite, 40);
     }
     &--vertical {
-        grid-column: col / span 10;
-        width: 200vw;
+        grid-column: 1 / span 5;
+        width: calc(100vw + #{$sp*6});
         height: 1px;
-        left: -50vw;
-        right: -50vw;
+        left: -$sp*3;
+        right: -$sp*3;
         top: -$sp--y*4;
         position: relative;
         @include from(3) {
-            grid-column: col / span 5;
+            grid-column: 1 / span 10;
         }
     }
     &--start {
@@ -50,9 +50,12 @@
         }
     }
     &--2a {
-        grid-column: col 4 / span 1;
+        display: none;
         grid-row: row / span 10;
         justify-self: end;
+        @include from(2) {
+            grid-column: col 4 / span 1;            
+        }
         @include from(3) {
             grid-column: col 7 / span 1;
         }
@@ -61,8 +64,11 @@
         }
     }
     &--2b {
-        grid-column: col 5 / span 1;
+        display: none;
         grid-row: row / span 10;
+        @include from(2) {
+            grid-column: 5 / span 1;
+        }
         @include from(3) {
             grid-column: col 8 / span 1;
         }

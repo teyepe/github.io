@@ -5,6 +5,7 @@
     left: 0;
     right: 0;
     z-index: 5;
+    width: 100vw;
     &__title {
         @include font('Eurostile', bold, 4, 4, 4);
         @include css-lock(-0.25*$sp, -0.55*$sp, letter-spacing);

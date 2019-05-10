@@ -2,20 +2,19 @@
     background-color: $offwhite;
     &__sticky-wrapper {
         position: sticky;
-        height: calc(100vh - 168px);
-        position: sticky;
-        top: 168px;
+        height: 100vh;
+        top: 0;
         width: 100%;
     }
     &__list {
         position: absolute;
-        bottom: 284px;
-        left: 40px;
-        transform: rotate(-90deg) translateX(-100%) translateY(0%);
+        bottom: $sp*3;
+        left: calc(50% - 9px);
+        transform: rotate(-90deg) translateY(100%);
         transform-origin: left bottom;
         opacity: 0.99;
         z-index: 10;
-        width: 260px;
+        width: $sp*26;
     }
     &__item {
         float: left;
