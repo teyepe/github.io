@@ -90,7 +90,6 @@
 
 .about {
     background-color: $offwhite;
-    mix-blend-mode: color;
     h2 {
         color: $orange;
     }
@@ -104,7 +103,7 @@
         cursor: url(../../img/cursor.svg) 0 12, auto;
         &:hover {
             .sample__item {
-                display: block;
+                display: none;
             }
         }
     }
@@ -114,6 +113,7 @@
         width: percentage(2/3);
         height: calc(100% - #{$sp--y*8});
         background-color: $orange;
+        background-blend-mode: color;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
