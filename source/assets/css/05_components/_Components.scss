@@ -4,7 +4,7 @@
     overflow-x: hidden;
     overflow-y: auto;
     color: $deepblue;
-    background-color: $orange;
+    background: url(../../../assets/img/bg--offwhite.png) 0 0 repeat fixed $orange;
     -webkit-overflow-scrolling: touch;
     padding-top: $sp--y*5;
 }
@@ -47,11 +47,11 @@
 }
 
 .pseudoheader {
+    background: url(../../../assets/img/bg--orange.png) 0 0 repeat fixed $offwhite;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    background-color: $offwhite;
     content: '';
     height: $sp--y*4;
     z-index: 0;
@@ -89,7 +89,7 @@
 }
 
 .about {
-    background-color: $offwhite;
+    background: url(../../../assets/img/bg--orange.png) 0 0 repeat fixed $offwhite;
     h2 {
         color: $orange;
     }
