@@ -6,6 +6,13 @@
     margin: 0;
     display: block;
     z-index: 10;
+    opacity: 0.65;
+    @include from(2) {
+        opacity: 0.8;
+    }
+    @include from(3) {
+        opacity: 1;
+    }
     &--light {
         background-color: shade-chroma($offwhite, 40);
     }

@@ -15,25 +15,6 @@ TEYEPE.blink = () => {
     }
 };
 
-TEYEPE.imageReveal = () => {
-    const hoverSample = $('.js-sample'),
-    sample = $('.samples__item');
-
-    $(hoverSample).on('mouseenter', function(){
-        showSample($(this));
-    });
-    $(hoverSample).on('mouseout', function() {
-        $(this).removeClass('is-visible');
-    });
-    function showSample(e) {
-        let thisImageIndex = hoverSample.index(e);
-        for (let i = 0; i < sample.length;i++) {
-            sample.removeClass('is-visible');
-            sample.eq(thisImageIndex).addClass('is-visible');
-        }
-    };
-};
-
 TEYEPE.scrollLoop = () => {
     const app = {
         scrollInterval: 30,
@@ -85,7 +66,6 @@ TEYEPE.scrollLoop = () => {
 TEYEPE.init = function() {
     TEYEPE.scrollLoop();
     TEYEPE.blink();
-    TEYEPE.imageReveal();
 };
 
 $(function() {

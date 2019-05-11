@@ -23,7 +23,6 @@
     &--a {
         grid-template-rows: repeat(4, [row] $sp--y);
         grid-gap: 0 $sp*3;
-        // height: 100%;
     }
     &--b {
         grid-template-rows: repeat(10, [row] $sp--y*4);
@@ -75,17 +74,16 @@
     }
     &__item--d {
         grid-column: col 1 / span 4;
-        grid-row: row 3 / span 3;
+        grid-row: row 3 / span 5;
         background-color: $deepblue;
+        position: relative;
+        overflow: hidden;
         z-index: 1;
-        // width: 530px;
         @include from(2) {
             grid-column: col 2 / span 3;
-            grid-row: row 3 / span 4;
         }
         @include from(3) {
             grid-column: col 2 / span 4;
-            grid-row: row 3 / span 5;
         }
     }
     &__item--e {
