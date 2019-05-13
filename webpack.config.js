@@ -131,7 +131,7 @@ const siteConfig = {
                     {
                         loader: 'file-loader',
                         options: {
-                            name: 'assets/type/[name]-[hash].[ext]'
+                            name: 'assets/type/[name].[ext]'
                         }
                     },
                 ]
