@@ -58,7 +58,7 @@ if (env.__BUILD__) {
     const compressionPluginGzip = new CompressionPlugin({
         asset: '[path].gz[query]',
         algorithm: 'gzip',
-        test: /\.(js|css|html|json|ico|svg|eot|otf|ttf)$/,
+        test: /\.(js|css|html|json|ico|svg|eot|otf|ttf|woff)$/,
     });
 
     sitePlugins = [...sitePlugins, uglifyJsPlugin, compressionPluginGzip];

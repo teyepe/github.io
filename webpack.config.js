@@ -38,7 +38,6 @@ const siteConfig = {
         filename: 'assets/js/[name].bundle.js',
         hotUpdateChunkFilename: '[id].[hash].hot-update.js',
         hotUpdateMainFilename: '[hash].hot-update.json',
-        // publicPath: process.env.NODE_ENV === 'production' ? '../../' : 'https://teyepe.com/',
         publicPath: process.env.NODE_ENV === 'production' ? '../../' : '../',
     },
 
@@ -126,7 +125,6 @@ const siteConfig = {
             },
             {
                 test: /\.(eot|woff(2)?)(\?\S*)?$/,
-                // use: 'base64-inline-loader?name=fonts/[name].[ext]'
                 use: [
                     {
                         loader: 'file-loader',
