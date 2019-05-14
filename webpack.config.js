@@ -37,8 +37,8 @@ const siteConfig = {
     output: {
         path: `${__dirname}/.tmp/dist`,
         filename: 'assets/js/[name].bundle.js',
-        hotUpdateChunkFilename: '[id].[contenthash].hot-update.js',
-        hotUpdateMainFilename: '[contenthash].hot-update.json',
+        hotUpdateChunkFilename: '[id].[hash].hot-update.js',
+        hotUpdateMainFilename: '[hash].hot-update.json',
         publicPath: process.env.NODE_ENV === 'production' ? '../../' : '../',
     },
 
@@ -80,7 +80,7 @@ const siteConfig = {
                             sourceMap: true,
                             sourceComments: true,
                             importLoaders: 1,
-                            localIdentName: '[path]-[name]--[local]__[contenthash]',
+                            localIdentName: '[path]-[name]--[local]__[hash]',
                         }
                     },
                     {
@@ -131,7 +131,8 @@ const siteConfig = {
                     {
                         loader: 'file-loader',
                         options: {
-                            name: 'assets/type/[name].[ext]'
+                            mimetype: 'application/font-woff',
+                            name: 'assets/type/[name].[hash].[ext]',
                         }
                     },
                 ]

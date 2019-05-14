@@ -24,42 +24,42 @@
 @import url(//hello.myfonts.net/count/381f98);
 @font-face {
   src: url("../../../assets/type/381F98_0_0.eot");
-  src: local("♠"), url("../../../assets/type/381F98_0_0.eot?#") format("embedded-opentype"), url("../../../assets/type/381F98_0_0.woff2") format("woff2"), url("../../../assets/type/381F98_0_0.woff") format("woff");
+  src: local("♠"), url("../../../assets/type/381F98_0_0.eot?#") format("embedded-opentype"), url("../../../assets/type/381F98_0_0.woff") format("woff"), url("../../../assets/type/381F98_0_0.woff2") format("woff2");
   font-family: "Eurostile";
   font-weight: bold;
   font-style: normal; }
 
 @font-face {
   src: url("../../../assets/type/FormaDJRMicro-Regular_licensed-to-teyepe.eot");
-  src: local("♠"), url("../../../assets/type/FormaDJRMicro-Regular_licensed-to-teyepe.eot?#") format("embedded-opentype"), url("../../../assets/type/FormaDJRMicro-Regular_licensed-to-teyepe.woff2") format("woff2"), url("../../../assets/type/FormaDJRMicro-Regular_licensed-to-teyepe.woff") format("woff");
+  src: local("♠"), url("../../../assets/type/FormaDJRMicro-Regular_licensed-to-teyepe.eot?#") format("embedded-opentype"), url("../../../assets/type/FormaDJRMicro-Regular_licensed-to-teyepe.woff") format("woff"), url("../../../assets/type/FormaDJRMicro-Regular_licensed-to-teyepe.woff2") format("woff2");
   font-family: "Forma-Micro";
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   src: url("../../../assets/type/FormaDJRText-Regular_licensed-to-teyepe.eot");
-  src: local("♠"), url("../../../assets/type/FormaDJRText-Regular_licensed-to-teyepe.eot?#") format("embedded-opentype"), url("../../../assets/type/FormaDJRText-Regular_licensed-to-teyepe.woff2") format("woff2"), url("../../../assets/type/FormaDJRText-Regular_licensed-to-teyepe.woff") format("woff");
+  src: local("♠"), url("../../../assets/type/FormaDJRText-Regular_licensed-to-teyepe.eot?#") format("embedded-opentype"), url("../../../assets/type/FormaDJRText-Regular_licensed-to-teyepe.woff") format("woff"), url("../../../assets/type/FormaDJRText-Regular_licensed-to-teyepe.woff2") format("woff2");
   font-family: "Forma-Text";
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   src: url("../../../assets/type/FormaDJRDeck-Regular_licensed-to-teyepe.eot");
-  src: local("♠"), url("../../../assets/type/FormaDJRDeck-Regular_licensed-to-teyepe.eot?#") format("embedded-opentype"), url("../../../assets/type/FormaDJRDeck-Regular_licensed-to-teyepe.woff2") format("woff2"), url("../../../assets/type/FormaDJRDeck-Regular_licensed-to-teyepe.woff") format("woff");
+  src: local("♠"), url("../../../assets/type/FormaDJRDeck-Regular_licensed-to-teyepe.eot?#") format("embedded-opentype"), url("../../../assets/type/FormaDJRDeck-Regular_licensed-to-teyepe.woff") format("woff"), url("../../../assets/type/FormaDJRDeck-Regular_licensed-to-teyepe.woff2") format("woff2");
   font-family: "Forma-Deck";
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   src: url("../../../assets/type/FormaDJRDisplay-Regular_licensed-to-teyepe.eot");
-  src: local("♠"), url("../../../assets/type/FormaDJRDisplay-Regular_licensed-to-teyepe.eot?#") format("embedded-opentype"), url("../../../assets/type/FormaDJRDisplay-Regular_licensed-to-teyepe.woff2") format("woff2"), url("../../../assets/type/FormaDJRDisplay-Regular_licensed-to-teyepe.woff") format("woff");
+  src: local("♠"), url("../../../assets/type/FormaDJRDisplay-Regular_licensed-to-teyepe.eot?#") format("embedded-opentype"), url("../../../assets/type/FormaDJRDisplay-Regular_licensed-to-teyepe.woff") format("woff"), url("../../../assets/type/FormaDJRDisplay-Regular_licensed-to-teyepe.woff2") format("woff2");
   font-family: "Forma-Display";
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   src: url("../../../assets/type/FormaDJRBanner-Regular_licensed-to-teyepe.eot");
-  src: local("♠"), url("../../../assets/type/FormaDJRBanner-Regular_licensed-to-teyepe.eot?#") format("embedded-opentype"), url("../../../assets/type/FormaDJRBanner-Regular_licensed-to-teyepe.woff2") format("woff2"), url("../../../assets/type/FormaDJRBanner-Regular_licensed-to-teyepe.woff") format("woff");
+  src: local("♠"), url("../../../assets/type/FormaDJRBanner-Regular_licensed-to-teyepe.eot?#") format("embedded-opentype"), url("../../../assets/type/FormaDJRBanner-Regular_licensed-to-teyepe.woff") format("woff"), url("../../../assets/type/FormaDJRBanner-Regular_licensed-to-teyepe.woff2") format("woff2");
   font-family: "Forma-Banner";
   font-weight: normal;
   font-style: normal; }
