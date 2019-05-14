@@ -69,7 +69,8 @@ const siteConfig = {
             {
                 test: /\.(sa|sc|c)ss$/,
                 include: [
-                    path.resolve(__dirname, 'source/assets/css')
+                    path.resolve(__dirname, 'source/assets/css'),
+                    path.resolve(__dirname, 'node_modules')
                 ],
                 use: [
                     MiniCSS.loader,
@@ -79,7 +80,7 @@ const siteConfig = {
                             sourceMap: true,
                             sourceComments: true,
                             importLoaders: 1,
-                            localIdentName: '[path]-[name]--[local]__[hash:base64:5]'
+                            localIdentName: '[path]-[name]--[local]__[hash:base64:5]',
                         }
                     },
                     {
