@@ -1,6 +1,7 @@
 .aside {
     background: url(../../../assets/img/bg--orange.png) 0 0 repeat fixed $offwhite;
     &__sticky-wrapper {
+        position: relative;
         position: sticky;
         height: 100vh;
         top: 0;
