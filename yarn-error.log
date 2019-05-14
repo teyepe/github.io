@@ -1,20 +1,20 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/Cellar/yarn/1.12.3/libexec/bin/yarn.js remove base64-inline-loader
+  /usr/local/Cellar/node/12.1.0/bin/node /usr/local/Cellar/yarn/1.16.0/libexec/bin/yarn.js
 
 PATH: 
-  /usr/local/opt/openssl/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Users/tasos 1/.rvm/bin:/Users/tasos 1/.rvm/bin
+  /usr/local/sbin:/usr/local/opt/openssl/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Users/tasos 1/.rvm/bin:/Users/tasos 1/.rvm/bin
 
 Yarn version: 
-  1.12.3
+  1.16.0
 
 Node version: 
-  11.2.0
+  12.1.0
 
 Platform: 
   darwin x64
 
 Trace: 
-  Error: EACCES: permission denied, unlink '/Users/tasos 1/Documents/Repositories/teyepe.github.io/node_modules/@babel/core/node_modules/source-map/CHANGELOG.md'
+  Error: EACCES: permission denied, unlink '/Users/tasos 1/Documents/Repositories/teyepe.github.io/node_modules/@babel/core/node_modules/source-map/LICENSE'
 
 npm manifest: 
   {

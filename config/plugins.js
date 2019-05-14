@@ -4,7 +4,10 @@ const env = require('./env');
 const MiniCSS = require('mini-css-extract-plugin');
 const Clean = require('clean-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
+const Md5Hash = require("webpack-md5-hash");
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+const TerserJSPlugin = require('terser-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const definePlugin = new webpack.DefinePlugin({
     __DEVELOPMENT__: JSON.stringify(env.__DEVELOPMENT__),
@@ -42,9 +45,11 @@ let sitePlugins = [
     occurrenceOrderPlugin,
     providePluginJquery,
     cssLint,
+    Md5Hash,
 ];
 
 if (env.__BUILD__) {
+
     const uglifyJsPlugin = new webpack.optimize.UglifyJsPlugin({
         sourceMap: true,
         compress: {
@@ -65,5 +70,8 @@ if (env.__BUILD__) {
 }
 
 module.exports = {
+    optimization: {
+        minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    },
     sitePlugins,
 };

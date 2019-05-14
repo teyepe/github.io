@@ -12,6 +12,7 @@ const babelLoader = {
 };
 
 const siteConfig = {
+
     entry: {
         app: [
             './source/assets/css/style.scss',
@@ -36,8 +37,8 @@ const siteConfig = {
     output: {
         path: `${__dirname}/.tmp/dist`,
         filename: 'assets/js/[name].bundle.js',
-        hotUpdateChunkFilename: '[id].[hash].hot-update.js',
-        hotUpdateMainFilename: '[hash].hot-update.json',
+        hotUpdateChunkFilename: '[id].[contenthash].hot-update.js',
+        hotUpdateMainFilename: '[contenthash].hot-update.json',
         publicPath: process.env.NODE_ENV === 'production' ? '../../' : '../',
     },
 
@@ -124,7 +125,7 @@ const siteConfig = {
                 use: 'url-loader?limit=' + embedFileSize + '&mimetype=image/gif'
             },
             {
-                test: /\.(eot|woff(2)?)(\?\S*)?$/,
+                test: /\.(woff|woff2|eot|ttf)$/i,
                 use: [
                     {
                         loader: 'file-loader',
