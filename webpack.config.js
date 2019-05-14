@@ -80,7 +80,7 @@ const siteConfig = {
                             sourceMap: true,
                             sourceComments: true,
                             importLoaders: 1,
-                            localIdentName: '[path]-[name]--[local]__[hash:base64:5]',
+                            localIdentName: '[path]-[name]--[local]__[contenthash]',
                         }
                     },
                     {
