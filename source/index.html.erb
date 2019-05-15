@@ -20,7 +20,16 @@ priority: 1.0
         <%= partial "partials/grid-lines/about" %>
         <div class="grid__item--d">
             <figure class="photograph">
-                <%= image_tag 'teyepe.jpg' %>
+                <img 
+                    srcset="<%= image_path('teyepe_560.jpg') %> 560w, 
+                            <%= image_path('teyepe_360.jpg') %> 360w, 
+                            <%= image_path('teyepe_220.jpg') %> 220w,
+                            <%= image_path('teyepe_560x2.jpg') %> 1120w, 
+                            <%= image_path('teyepe_360x2.jpg') %> 7200w, 
+                            <%= image_path('teyepe_220x2.jpg') %> 440w"
+                    sizes= "(max-width: 26.875rem) 220px, (max-width: 59.95rem) 360px, 560px"
+                    src="<%= image_path('teyepe_220.jpg') %>" 
+                >
             </figure>
         </div>
         <div class="grid__item--a">
