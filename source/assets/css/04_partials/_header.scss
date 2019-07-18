@@ -8,7 +8,7 @@
     width: 100vw;
     &__title {
         @include font('Eurostile', bold, 4, 4, 4);
-        @include css-lock(-0.25*$sp, -0.55*$sp, letter-spacing);
+        @include css-lock(-0.4*$sp, -0.55*$sp, letter-spacing);
         color: $deepblue;
         &:hover {
             color: $orange;

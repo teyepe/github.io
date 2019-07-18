@@ -9,7 +9,7 @@
     h2 {
         color: $offwhite;
     }
-    a[href^='mailto'] {
+    a {
         &:hover {
             color: $offwhite;
         }

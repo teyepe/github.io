@@ -2,7 +2,7 @@
     @include font('Forma-Micro', normal, 0.5, 0.75, 4);
     background-color: $orange;
     border-radius: $sp*0.5;
-    border: none;
+    border: 0;
     letter-spacing: 2px;
     color: $offwhite;
     display: inline-block;
@@ -11,7 +11,7 @@
     text-transform: uppercase;
     transition: all 0.125s ease-out 0s;
     white-space: nowrap;
-    vertical-align: middle; 
+    vertical-align: middle;
     margin-top: $sp*3;
     &:hover,
     &:focus {

@@ -1,10 +1,10 @@
 @charset 'UTF-8';
 
-@import '/01_settings/Settings';
-@import '/02_tools/Tools';
-@import '/03_generic/Generic';
-@import '/04_partials/Partials';
-@import '/05_components/Components';
+@import '../../../source/assets/css/01_settings/Settings';
+@import '../../../source/assets/css/02_tools/Tools';
+@import '../../../source/assets/css/03_generic/Generic';
+@import '../../../source/assets/css/04_partials/Partials';
+@import '../../../source/assets/css/05_components/Components';
 
 .grid {
     max-width: $bp--lg;
@@ -58,10 +58,10 @@
         grid-column: col 1 / span 4;
         grid-row: row 4 / span 4;
         z-index: 1;
-        padding: 0 0 $sp--y*4;
+        padding: 0 0 $sp--y*6;
         @include from(3) {
             grid-column: col 4 / span 5;
-            padding: $sp--y*4 0;
+            padding: $sp--y*4 0 $sp--y*6;
         }
     }
     &__item--c {

@@ -1,7 +1,7 @@
-@import '~modularscale-sass/stylesheets/modularscale';
-@import '~breakpoint-sass';
-@import '~breakpoint-slicer';
-@import '~mathsass/dist/math';
+@import '../../../../node_modules/modularscale-sass/stylesheets/modularscale';
+@import '../../../../node_modules/breakpoint-sass/stylesheets/breakpoint';
+@import '../../../../node_modules/breakpoint-slicer/stylesheets/breakpoint-slicer';
+@import '../../../../node_modules/mathsass/dist/math';
 
 $get-px: false !default;
 $is-printed: false !global;

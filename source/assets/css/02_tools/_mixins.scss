@@ -8,8 +8,8 @@
         } @else {
             src: local('\2660'),
                 url('#{unquote($font_path)}#{$font_filename}.eot?#') format('embedded-opentype'),
-                url('#{unquote($font_path)}#{$font_filename}.woff2') format('woff2'),
-                url('#{unquote($font_path)}#{$font_filename}.woff') format('woff');
+                url('#{unquote($font_path)}#{$font_filename}.woff') format('woff'),
+                url('#{unquote($font_path)}#{$font_filename}.woff2') format('woff2');
         }
         font: {
             family: '#{$font-family}';
