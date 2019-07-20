@@ -1,6 +1,6 @@
 .button {
     @include font('Forma-Micro', normal, 0.5, 0.75, 4);
-    background-color: $orange;
+    background: url(../../../assets/img/bg--offwhite.png) 0 0 repeat fixed $orange;
     border-radius: $sp*0.5;
     border: 0;
     letter-spacing: 2px;

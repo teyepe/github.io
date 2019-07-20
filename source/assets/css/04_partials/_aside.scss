@@ -23,5 +23,23 @@
         &:last-child {
             margin-right: 0;
         }
+        a {
+            color: $orange;
+            display: inline-block;
+            position: relative;
+            &:before {
+                position: absolute;
+                content: '';
+                display: inline-block;
+                height: 1px;
+                left: 0;
+                right: 0;
+                background-color: $orange;
+                bottom: -1px;
+            }
+            &:hover {
+                color: $deepblue;
+            }
+        }
     }
 }

@@ -387,9 +387,9 @@ svg .svg-color--deepblue {
     color: #EBE8E2; }
   .footer a:hover {
     color: #EBE8E2; }
-  .footer a[href^='https'] {
+  .footer a[href*='discogs.com'] {
     position: relative; }
-    .footer a[href^='https']:before {
+    .footer a[href*='discogs.com']:before {
       position: absolute;
       content: '';
       display: inline-block;
@@ -397,7 +397,7 @@ svg .svg-color--deepblue {
       width: 100%;
       background-color: #F96033;
       bottom: 2px; }
-    .footer a[href^='https']:hover {
+    .footer a[href*='discogs.com']:hover {
       color: #EBE8E2; }
   .footer__colophon {
     color: #EBE8E2;
@@ -448,6 +448,21 @@ svg .svg-color--deepblue {
     margin-right: 1.5rem; }
     .aside__item:last-child {
       margin-right: 0; }
+    .aside__item a {
+      color: #F96033;
+      display: inline-block;
+      position: relative; }
+      .aside__item a:before {
+        position: absolute;
+        content: '';
+        display: inline-block;
+        height: 1px;
+        left: 0;
+        right: 0;
+        background-color: #F96033;
+        bottom: -1px; }
+      .aside__item a:hover {
+        color: #181238; }
 
 .line {
   width: 1px;
@@ -572,7 +587,7 @@ svg .svg-color--deepblue {
   font-weight: normal;
   line-height: 1.125;
   : 0.2115rem;
-  background-color: #F96033;
+  background: url(../../../assets/img/bg--offwhite.png) 0 0 repeat fixed #F96033;
   border-radius: 0.3125rem;
   border: 0;
   letter-spacing: 2px;
