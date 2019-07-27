@@ -12,9 +12,20 @@
         <link rel="manifest" href="/site.webmanifest">
         <link rel="canonical" href="<%= permalink_helper %>">
         <%= stylesheet_link_tag "app", :relative => false %>
+        <script>
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-5X64B7N');
+        </script>
     </head>
 
     <body class="<%= page_classes %>">
+        <noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5X64B7N"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        </noscript>
         <%= partial "partials/header" %>
         <div class="loop js-loop">        
             <main id="main" class="main">
@@ -23,7 +34,6 @@
             <%= partial "partials/footer" %>
         </div>
         <%= javascript_include_tag "vendor.bundle", "app.bundle" %>
-        <%= google_analytics_tag %>
         <script>
         var captureOutboundLink = function(url) {
            ga('send', 'event', 'outbound', 'click', url, {

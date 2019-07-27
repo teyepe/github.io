@@ -12,9 +12,9 @@ activate :external_pipeline,
     source: '.tmp/dist',
     latency: 1
 
-activate :google_analytics do |ga|
-    ga.tracking_id = 'UA-26630868-1'
-end
+# activate :google_analytics do |ga|
+#     ga.tracking_id = 'UA-26630868-1'
+# end
 
 set :url_root, 'https://teyepe.com/'
 set :css_dir, 'assets/css/'
