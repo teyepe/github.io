@@ -185,7 +185,7 @@ h6 {
   margin-bottom: 0.81563rem;
   padding-top: 0.21563rem;
   letter-spacing: calc(-0.1625vw + -0.36258rem);
-  color: #EBE8E2; }
+  color: #EFEEED; }
   @media (max-width: 26.825rem) {
     .c-title--h1 {
       font-size: 3.8416rem; } }
@@ -310,14 +310,14 @@ html {
   box-sizing: inherit; }
 
 a {
-  color: #F96033;
+  color: #E2583D;
   text-decoration: none;
   transition: all 0.15s ease-out 0s; }
   a:hover {
-    color: #F96033;
+    color: #E2583D;
     transition: all 0.15s ease-in 0s; }
   a:active {
-    color: #F96033; }
+    color: #E2583D; }
 
 p span {
   overflow-wrap: break-word;
@@ -334,10 +334,10 @@ p span {
   font-weight: bold; }
 
 svg .svg-color--orange {
-  fill: #F96033; }
+  fill: #E2583D; }
 
 svg .svg-color--deepblue {
-  fill: #181238; }
+  fill: #1C1A26; }
 
 .header {
   height: 6rem;
@@ -354,7 +354,7 @@ svg .svg-color--deepblue {
     line-height: 1.125;
     : 0.2625rem;
     letter-spacing: calc(-0.15vw + -0.20969rem);
-    color: #181238; }
+    color: #1C1A26; }
     @media (max-width: 26.825rem) {
       .header__title {
         font-size: 3.8416rem; } }
@@ -368,25 +368,25 @@ svg .svg-color--deepblue {
       .header__title {
         letter-spacing: -0.34375rem; } }
     .header__title:hover {
-      color: #F96033; }
+      color: #E2583D; }
   .header__logo svg {
-    fill: #181238;
+    fill: #1C1A26;
     width: 100%;
     height: auto;
     max-height: 105%;
     position: absolute; }
 
 .footer {
-  background: url(../../../assets/img/bg--orange.png) 0 0 repeat fixed #181238;
-  color: #F96033; }
+  background: url(../../../assets/img/bg--orange.png) 0 0 repeat fixed #1C1A26;
+  color: #E2583D; }
   .footer .aside__sticky-wrapper {
     top: 0;
     width: 100%;
     height: 304px; }
   .footer h2 {
-    color: #EBE8E2; }
+    color: #EFEEED; }
   .footer a:hover {
-    color: #EBE8E2; }
+    color: #EFEEED; }
   .footer a[href*='discogs.com'] {
     position: relative; }
     .footer a[href*='discogs.com']:before {
@@ -395,12 +395,12 @@ svg .svg-color--deepblue {
       display: inline-block;
       height: 1px;
       width: 100%;
-      background-color: #F96033;
+      background-color: #E2583D;
       bottom: 2px; }
     .footer a[href*='discogs.com']:hover {
-      color: #EBE8E2; }
+      color: #EFEEED; }
   .footer__colophon {
-    color: #EBE8E2;
+    color: #EFEEED;
     margin-top: 1.5rem; }
     .footer__colophon h3 {
       font-family: "Eurostile", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -423,11 +423,11 @@ svg .svg-color--deepblue {
         bottom: -0.125rem;
         font-size: 120%; }
   .footer__copyright small {
-    color: #EBE8E2;
+    color: #EFEEED;
     font-family: "Forma-Micro", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 .aside {
-  background: url(../../../assets/img/bg--orange.png) 0 0 repeat fixed #EBE8E2; }
+  background: url(../../../assets/img/bg--orange.png) 0 0 repeat fixed #EFEEED; }
   .aside__sticky-wrapper {
     position: relative;
     position: sticky;
@@ -449,7 +449,7 @@ svg .svg-color--deepblue {
     .aside__item:last-child {
       margin-right: 0; }
     .aside__item a {
-      color: #F96033;
+      color: #E2583D;
       display: inline-block;
       position: relative; }
       .aside__item a:before {
@@ -459,15 +459,15 @@ svg .svg-color--deepblue {
         height: 1px;
         left: 0;
         right: 0;
-        background-color: #F96033;
+        background-color: #E2583D;
         bottom: -1px; }
       .aside__item a:hover {
-        color: #181238; }
+        color: #1C1A26; }
 
 .line {
   width: 1px;
   display: block;
-  background-color: #e0482e;
+  background-color: #cb4337;
   border: 0;
   margin: 0;
   display: block;
@@ -480,7 +480,7 @@ svg .svg-color--deepblue {
     .line {
       opacity: 1; } }
   .line--light {
-    background-color: #8d8b88; }
+    background-color: #8f8f8e; }
   .line--vertical {
     grid-column: 1 / span 5;
     width: 100vw;
@@ -587,11 +587,11 @@ svg .svg-color--deepblue {
   font-weight: normal;
   line-height: 1.125;
   : 0.2115rem;
-  background: url(../../../assets/img/bg--offwhite.png) 0 0 repeat fixed #F96033;
+  background: url(../../../assets/img/bg--offwhite.png) 0 0 repeat fixed #E2583D;
   border-radius: 0.3125rem;
   border: 0;
   letter-spacing: 2px;
-  color: #EBE8E2;
+  color: #EFEEED;
   display: inline-block;
   padding: 1.875rem 2.1875rem;
   text-align: center;
@@ -607,15 +607,15 @@ svg .svg-color--deepblue {
     .button {
       font-size: 1.28705rem; } }
   .button:hover, .button:focus {
-    box-shadow: 0 0.78125rem 1.25rem -0.625rem rgba(87, 34, 18, 0.6);
-    background-color: #fa7f47;
-    color: #EBE8E2;
+    box-shadow: 0 0.78125rem 1.25rem -0.625rem rgba(102, 40, 27, 0.6);
+    background-color: #e57550;
+    color: #EFEEED;
     cursor: pointer;
     transition: all 0.095s ease-in 0s; }
     .button:hover:after, .button:focus:after {
       transform: translateX(0.625rem); }
   .button:active {
-    background-color: #e0482e;
+    background-color: #cb4337;
     box-shadow: none;
     cursor: pointer; }
   .button:focus {
@@ -626,8 +626,8 @@ svg .svg-color--deepblue {
   width: 100%;
   overflow-x: hidden;
   overflow-y: auto;
-  color: #181238;
-  background: url(../../../assets/img/bg--offwhite.png) 0 0 repeat fixed #F96033;
+  color: #1C1A26;
+  background: url(../../../assets/img/bg--offwhite.png) 0 0 repeat fixed #E2583D;
   -webkit-overflow-scrolling: touch;
   padding-top: 7.5rem; }
 
@@ -663,7 +663,7 @@ svg .svg-color--deepblue {
   transform: translateZ(0); }
 
 .pseudoheader {
-  background: url(../../../assets/img/bg--orange.png) 0 0 repeat fixed #EBE8E2;
+  background: url(../../../assets/img/bg--orange.png) 0 0 repeat fixed #EFEEED;
   position: absolute;
   top: 0;
   left: 0;
@@ -686,7 +686,7 @@ svg .svg-color--deepblue {
     padding-top: 0.2rem;
     margin-top: 1.5rem;
     hyphens: manual;
-    color: #EBE8E2; }
+    color: #EFEEED; }
     @media (max-width: 26.825rem) {
       .intro p {
         font-size: 1.4rem; } }
@@ -720,13 +720,13 @@ svg .svg-color--deepblue {
         right: -2px;
         height: 5px;
         position: absolute;
-        background: #181238;
+        background: #1C1A26;
         top: calc(0.5em + 2.5px); }
 
 .about {
-  background: url(../../../assets/img/bg--orange.png) 0 0 repeat fixed #EBE8E2; }
+  background: url(../../../assets/img/bg--orange.png) 0 0 repeat fixed #EFEEED; }
   .about h2 {
-    color: #F96033; }
+    color: #E2583D; }
   .about p {
     font-size: calc(0.896vw + 1.1592rem);
     font-family: "Forma-Micro", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -830,7 +830,7 @@ svg .svg-color--deepblue {
   .grid__item--d {
     grid-column: col 1 / span 4;
     grid-row: row 3 / span 5;
-    background-color: #181238;
+    background-color: #1C1A26;
     position: relative;
     overflow: hidden;
     z-index: 1; }
