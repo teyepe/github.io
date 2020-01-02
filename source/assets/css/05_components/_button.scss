@@ -3,13 +3,12 @@
     background: url(../../../assets/img/bg--offwhite.png) 0 0 repeat fixed $orange;
     border-radius: $sp*0.5;
     border: 0;
-    letter-spacing: 2px;
     color: $offwhite;
     display: inline-block;
-    padding: $sp*3 $sp*3.5;
+    padding: $sp--y $sp*4;
     text-align: center;
     text-transform: uppercase;
-    transition: all 0.125s ease-out 0s;
+    transition: all 0.15s ease-out 0s;
     white-space: nowrap;
     vertical-align: middle;
     margin-top: $sp*3;

@@ -53,6 +53,15 @@ h6 {
     }
 }
 
+.c-link--txt {
+    text-decoration: underline $orange solid;
+    text-underline-offset: $sp*0.5;
+    text-decoration-thickness: 1px;
+    &:hover {
+        color: $deepblue;
+    }
+}
+
 small {
     @include font('Forma-Text', normal, -1, -1, 4, margin-bottom, padding-top);
 }
