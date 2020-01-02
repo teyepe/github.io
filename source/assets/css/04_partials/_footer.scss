@@ -15,16 +15,9 @@
         }
     }
     a[href*='discogs.com'] {
-        position: relative;
-        &:before {
-            position: absolute;
-            content: '';
-            display: inline-block;
-            height: 1px;
-            width: 100%;
-            background-color: $orange;
-            bottom: 2px;
-        }
+        text-decoration: underline $orange solid;
+        text-underline-offset: $sp*0.5;
+        text-decoration-thickness: 1px;
         &:hover {
             color: $offwhite;
         }

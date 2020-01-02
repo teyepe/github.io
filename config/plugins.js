@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const env = require('./env');
 
 const MiniCSS = require('mini-css-extract-plugin');
-const Clean = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const Md5Hash = require("webpack-md5-hash");
 const StyleLintPlugin = require('stylelint-webpack-plugin');
@@ -16,7 +16,8 @@ const definePlugin = new webpack.DefinePlugin({
     __VERSION__:     JSON.stringify(env.__VERSION__),
 });
 
-const cleanPluginTmp = new Clean(['.tmp'], {
+const cleanPluginTmp = new CleanWebpackPlugin({
+    dry: true,
     root: process.cwd()
 });
 

@@ -9,13 +9,13 @@ $woff2: false;
 $font-size-arb: if($is-printed, 12, 16);
 $font-size-px: $font-size-arb*1px;
 $font-size: if($is-printed, ($font-size-arb/12)*1pt, ($font-size-arb/16)*1rem);
-$line-height: if($is-printed, 14, 24)/$font-size-arb;
+$line-height: if($is-printed, 14, 30)/$font-size-arb;
 
 $ms-base: $font-size;
 $ms-ratio: 1.4;
 
 $sp: $font-size*10/$font-size-arb;
-$sp--y: $sp*2.4;
+$sp--y: $sp*3;
 
 $serif: (Georgia, Cambria, 'Times New Roman', Times, serif);
 $sans: ('Helvetica Neue', Helvetica, Arial, sans-serif);

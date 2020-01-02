@@ -19,24 +19,15 @@
     }
     &__item {
         float: left;
-        margin-right: $sp--y;
+        margin-right: $sp--y*24/30;
         &:last-child {
             margin-right: 0;
         }
         a {
             color: $orange;
-            display: inline-block;
-            position: relative;
-            &:before {
-                position: absolute;
-                content: '';
-                display: inline-block;
-                height: 1px;
-                left: 0;
-                right: 0;
-                background-color: $orange;
-                bottom: -1px;
-            }
+            text-decoration: underline $orange solid;
+            text-underline-offset: $sp*0.5;
+            text-decoration-thickness: 1px;
             &:hover {
                 color: $deepblue;
             }

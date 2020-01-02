@@ -78,9 +78,7 @@ const siteConfig = {
                         loader: 'css-loader',
                         query: {
                             sourceMap: true,
-                            sourceComments: true,
-                            importLoaders: 1,
-                            localIdentName: '[path]-[name]--[local]__[hash]',
+                            importLoaders: 2,
                         }
                     },
                     {
