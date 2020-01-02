@@ -6,9 +6,9 @@ module.exports = {
         require('postcss-merge-longhand'),
         require('postcss-unique-selectors'),
         require('postcss-ordered-values'),
+        require('postcss-gap-properties'),
         require('autoprefixer')({
-            grid: true,
-            browsers: ['> 5%']
+            grid: false
         }),
         require('css-declaration-sorter')({
             order: 'concentric-css'
