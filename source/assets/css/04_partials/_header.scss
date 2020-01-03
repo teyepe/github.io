@@ -10,9 +10,6 @@
         @include font('Eurostile', bold, 4, 4, 4);
         @include css-lock(-0.4*$sp, -0.55*$sp, letter-spacing);
         color: $deepblue;
-        &:hover {
-            color: $orange;
-        }
     }
     &__logo {    
         svg {
@@ -23,5 +20,9 @@
             position: absolute;
         }
     }
+}
+
+.header .header__title:hover {
+    color: $orange;
 }
 
