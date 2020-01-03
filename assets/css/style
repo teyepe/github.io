@@ -374,14 +374,15 @@ svg .svg-color--deepblue {
     @media (min-width: 89.375rem) {
       .header__title {
         letter-spacing: -0.34375rem; } }
-    .header__title:hover {
-      color: #E2583D; }
   .header__logo svg {
     fill: #1C1A26;
     width: 100%;
     height: auto;
     max-height: 105%;
     position: absolute; }
+
+.header .header__title:hover {
+  color: #E2583D; }
 
 .footer {
   background: url(../../../assets/img/bg--orange.png) 0 0 repeat fixed #1C1A26;
