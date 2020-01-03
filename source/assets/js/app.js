@@ -4,7 +4,7 @@ const $ = window.$;
 const TEYEPE = window.TEYEPE || {};
 
 TEYEPE.blink = () => {
-    const logo = document.getElementById('logo'),
+    const logo = document.getElementById('animatable-logo'),
         animationEnter = document.getElementById('animation-enter'),
         animationOut = document.getElementById('animation-out');
 
@@ -22,8 +22,8 @@ TEYEPE.scrollLoop = () => {
         pageHeight: null,
         loop: function() {
             app.pageHeight = $(".js-loop").outerHeight();
-            $(".js-loop").clone().addClass('is-clone').insertAfter(".js-loop");
-            $(".js-loop.is-clone").find(".sample__anchor").addClass('pla');
+            $(".js-loop").clone().attr('id', 'is-clone').insertAfter(".js-loop");
+            $("#is-clone").removeClass('js-loop');
             $(window).on("load", function() {
                 app.pageHeight = $(".js-loop").outerHeight();
             });
