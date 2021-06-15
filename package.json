@@ -46,7 +46,7 @@
     "modularscale-sass": "^3.0.10",
     "node-sass": "^4.13.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
-    "postcss": "^7.0.26",
+    "postcss": "^7.0.36",
     "postcss-color-function": "^4.1.0",
     "postcss-discard-duplicates": "^4.0.2",
     "postcss-discard-empty": "^4.0.1",
